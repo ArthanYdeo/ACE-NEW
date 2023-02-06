@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "59359658857",
+    "project_id": "aceproj-1efc2",
+    "storage_bucket": "aceproj-1efc2.appspot.com",
+    "firebase_url": "https://aceproj-1efc2-default-rtdb.asia-southeast1.firebasedatabase.app/"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59359658857:android:77b1d0e30fb0cb231ab3f8",
+        "android_client_info": {
+          "package_name": "com.example.ace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59359658857-5p1a7uu3r03pun82j7eaarn1nh6mt2sd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAHjQpA0KziEab3sg4Q1pt8hH3LYZKMlQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "59359658857-5p1a7uu3r03pun82j7eaarn1nh6mt2sd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "59359658857-aokt7h5mpc9eof2bjdgkr0lpvmp8m3hn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ace"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
