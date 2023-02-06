@@ -13,7 +13,7 @@ class _ClassroomState extends State<Classroom> {
     return  Scaffold(
     backgroundColor: Colors.blueGrey[300],
       body: const Center(
-        child: Text('Potanginamo',
+        child: Text('',
           style: TextStyle(
         fontWeight: FontWeight.bold,
         color: Colors.black87,

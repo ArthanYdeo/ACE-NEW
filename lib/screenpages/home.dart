@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.blueGrey[300],
         body: const Center(
         child:
-        Text('Welcome User!',
+        Text('Welcome User!' + '',
         style: TextStyle(
         fontWeight: FontWeight.bold,
         color: Colors.black87,

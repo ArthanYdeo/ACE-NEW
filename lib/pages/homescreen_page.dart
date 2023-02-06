@@ -12,7 +12,7 @@ class HomeScreenPage extends StatefulWidget {
 }
 
 class _HomeScreenPageState extends State<HomeScreenPage> {
-  int pageIndex = 2;
+  int pageIndex = 0;
   final pages = [
     const Home(),
     const Classroom(),

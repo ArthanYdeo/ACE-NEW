@@ -85,16 +85,7 @@ class RegisterPage extends StatelessWidget {
             const SizedBox(height: 10),
 
             ConfirmButton(
-                onTap: ()async{
-                  debugPrint(idnumController.text);
-                  Student my = Student(
-                      firstName: firstnameController.text,
-                      middleName: middlenameController.text ,
-                      lastName: lastnameController.text,
-                      idNum: idnumController.text,
-                      schoolIssuedEmail: emailController.text,
-                      password: passwordController.text );
-                  await _testReference.child(idnumController.text).set(my.toJson());
+                onTap: (){
                 }
             ),
 
