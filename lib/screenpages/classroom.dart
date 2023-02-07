@@ -1,26 +1,99 @@
 import 'package:flutter/material.dart';
 
-class Classroom extends StatefulWidget {
-  const Classroom({Key? key}) : super(key: key);
+import '../classroom_directory/detail_page1.dart';
+import '../classroom_directory/detail_page2.dart';
+import '../classroom_directory/detail_page3.dart';
+import '../classroom_directory/detail_page4.dart';
+import '../classroom_directory/detail_page5.dart';
+import '../classroom_directory/detail_page6.dart';
+import '../classroom_directory/detail_page7.dart';
+import '../classroom_directory/detail_page8.dart';
+
+
+
+
+class Classroom extends StatelessWidget {
+
 
   @override
-  State<Classroom> createState() => _ClassroomState();
-}
-
-class _ClassroomState extends State<Classroom> {
-  @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-    backgroundColor: Colors.blueGrey[300],
-      body: const Center(
-        child: Text('',
-          style: TextStyle(
-        fontWeight: FontWeight.bold,
-        color: Colors.black87,
-        fontSize: 25,
-          ),
-      ),
-      )
-    );
+    Widget build(BuildContext context) {
+      return GridView.count(
+        crossAxisCount: 2,
+        children: List.generate(8, (index) {
+          return Padding(
+            padding: EdgeInsets.all(8),
+            child: InkWell(
+              onTap: () {
+                switch (index) {
+                  case 0:
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailPage1()),
+                    );
+                    break;
+                  case 1:
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailPage2()),
+                    );
+                    break;
+                  case 2:
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailPage3()),
+                    );
+                    break;
+                  case 3:
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailPage4()),
+                    );
+                    break;
+                  case 4:
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailPage5()),
+                    );
+                    break;
+                  case 5:
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailPage6()),
+                    );
+                    break;
+                  case 6:
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailPage7()),
+                    );
+                    break;
+                  case 7:
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailPage8()),
+                    );
+                    break;
+                }
+              },
+              child: Card(
+                elevation: 5,
+                margin: EdgeInsets.all(8),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                child: Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Center(
+                    child: Text(
+                      'Class $index',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+        }),
+      );
+    }
   }
-}
+

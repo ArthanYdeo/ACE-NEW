@@ -1,28 +1,19 @@
 import 'package:flutter/material.dart';
 
-class Account extends StatefulWidget {
-  const Account({Key? key}) : super(key: key);
-
-  @override
-  State<Account> createState() => _AccountState();
-}
-
-class _AccountState extends State<Account> {
+class Account extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blueGrey[300],
+      backgroundColor: Colors.blueGrey[300],
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-
               const SizedBox(height: 15),
               Container(
                 decoration: BoxDecoration(
                     color: Colors.grey[200],
-                    borderRadius:  BorderRadius.circular(55)
-                ),
+                    borderRadius: BorderRadius.circular(55)),
                 child: const Icon(
                   Icons.person_outline_rounded,
                   size: 150,
@@ -31,8 +22,9 @@ class _AccountState extends State<Account> {
               ),
               const SizedBox(height: 35),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 55),
-                padding: const EdgeInsets.symmetric(horizontal: 150, vertical: 5),
+                // margin: const EdgeInsets.symmetric(horizontal: 55),
+                padding:
+                const EdgeInsets.symmetric(horizontal: 120, vertical: 5),
                 decoration: const BoxDecoration(
                   color: Colors.blue,
                   borderRadius: BorderRadius.only(
@@ -59,7 +51,7 @@ class _AccountState extends State<Account> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(left:10.0),
+                  padding: const EdgeInsets.only(left: 10.0),
                   child: Column(
                     children: [
                       const SizedBox(height: 20),
@@ -73,11 +65,10 @@ class _AccountState extends State<Account> {
                           ),
                         ),
                       ),
-
                       const SizedBox(height: 15.0),
-
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 60,vertical: 5),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 60, vertical: 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
@@ -101,9 +92,9 @@ class _AccountState extends State<Account> {
                         ),
                       ),
                       const SizedBox(height: 15.0),
-
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 60,vertical: 5),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 60, vertical: 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
@@ -126,11 +117,10 @@ class _AccountState extends State<Account> {
                           color: Colors.black87,
                         ),
                       ),
-
                       const SizedBox(height: 15.0),
-
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 70,vertical: 5),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 60, vertical: 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
@@ -154,87 +144,9 @@ class _AccountState extends State<Account> {
                         ),
                       ),
                       const SizedBox(height: 15.0),
-
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 55,vertical: 5),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(
-                            color: Colors.grey,
-                          ),
-                          borderRadius: const BorderRadius.horizontal(),
-                        ),
-                        child: const Text(
-                          'Phone Number',
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.black38,
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        'Phone Number',
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.black87,
-                        ),
-                      ),
-                      const SizedBox(height: 15.0),
-
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 80,vertical: 5),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(
-                            color: Colors.grey,
-                          ),
-                          borderRadius: const BorderRadius.horizontal(),
-                        ),
-                        child: const Text(
-                          'College',
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.black38,
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        'Department',
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.black87,
-                        ),
-                      ),
-                      const SizedBox(height: 15.0),
-
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 80,vertical: 5),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(
-                            color: Colors.grey,
-                          ),
-                          borderRadius: const BorderRadius.horizontal(),
-                        ),
-                        child: const Text(
-                          'Course',
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.black38,
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        'Course',
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.black87,
-                        ),
-                      ),
-                      const SizedBox(height: 15.0),
-
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 53,vertical: 5),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 60, vertical: 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
@@ -258,16 +170,91 @@ class _AccountState extends State<Account> {
                         ),
                       ),
                       const SizedBox(height: 15.0),
-
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 60, vertical: 5),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Colors.grey,
+                          ),
+                          borderRadius: const BorderRadius.horizontal(),
+                        ),
+                        child: const Text(
+                          'Phone Number',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.black38,
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        'Phone Number',
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const SizedBox(height: 15.0),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 60, vertical: 5),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Colors.grey,
+                          ),
+                          borderRadius: const BorderRadius.horizontal(),
+                        ),
+                        child: const Text(
+                          'College',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.black38,
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        'Department',
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const SizedBox(height: 15.0),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 60, vertical: 5),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Colors.grey,
+                          ),
+                          borderRadius: const BorderRadius.horizontal(),
+                        ),
+                        child: const Text(
+                          'Course',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.black38,
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        'Course',
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const SizedBox(height: 15.0),
                     ],
                   ),
                 ),
               ),
               const SizedBox(height: 10.0),
-
               ElevatedButton(
                 onPressed: () {
-
                   // Logout action
                 },
                 child: const Text(
