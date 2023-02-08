@@ -1,5 +1,5 @@
-import 'package:ACE/components/student_password_fieldtext.dart';
-import 'package:ACE/components/studentlogin_button.dart';
+import 'package:ace/components/student_password_fieldtext.dart';
+import 'package:ace/components/studentlogin_button.dart';
 import 'package:flutter/material.dart';
 import '../components/register_button.dart';
 import '../components/student_id_textfield.dart';
@@ -19,7 +19,7 @@ class StudentLoginPage extends StatelessWidget {
         body: SafeArea(
           child: Center(
             child: Column(
-              children:  [
+              children: [
                 const SizedBox(height: 50),
 
                 // logo
@@ -42,19 +42,18 @@ class StudentLoginPage extends StatelessWidget {
                 const SizedBox(height: 25),
 
                 // username text-field
-                 StudentID(
+                StudentID(
                     controller: usernameController,
                     hintText: 'Email',
                     obscureText: false),
 
-
                 const SizedBox(height: 10),
 
                 // password text-field
-                 StudentPassword(
+                StudentPassword(
                     controller: passwordController,
                     hintText: 'Password',
-                    obscureText:true),
+                    obscureText: true),
 
                 const SizedBox(height: 10),
 
@@ -86,11 +85,11 @@ class StudentLoginPage extends StatelessWidget {
 
                 const SizedBox(height: 5),
 
-               const RegisterButton(onTap: null)
+                const RegisterButton(onTap: null)
               ],
             ),
           ),
         ) // column
-    ); //scaffold
+        ); //scaffold
   }
 }

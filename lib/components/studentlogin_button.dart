@@ -1,7 +1,5 @@
-import 'package:ACE/pages/homescreen_page.dart';
+import 'package:ace/pages/homescreen_page.dart';
 import 'package:flutter/material.dart';
-
-
 
 class StudentLoginButton extends StatelessWidget {
   final Function()? onTap;
@@ -15,8 +13,8 @@ class StudentLoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (BuildContext context) => HomeScreenPage()));
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => HomeScreenPage()));
       },
       child: Container(
         padding: const EdgeInsets.all(25),

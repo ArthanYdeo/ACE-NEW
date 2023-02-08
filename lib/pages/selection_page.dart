@@ -1,6 +1,6 @@
-import 'package:ACE/components/admin_button.dart';
-import 'package:ACE/components/register_button.dart';
-import 'package:ACE/components/student_button.dart';
+import 'package:ace/components/admin_button.dart';
+import 'package:ace/components/register_button.dart';
+import 'package:ace/components/student_button.dart';
 import 'package:flutter/material.dart';
 
 class SelectionPage extends StatelessWidget {
@@ -16,10 +16,9 @@ class SelectionPage extends StatelessWidget {
             children: const [
               SizedBox(height: 50),
               ImageIcon(
-                  AssetImage('assets/aceicon.png'),
-                size:280,
-                  ),
-
+                AssetImage('assets/aceicon.png'),
+                size: 280,
+              ),
               Text(
                 'Academia Classroom Explorer',
                 style: TextStyle(
@@ -29,20 +28,12 @@ class SelectionPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 50),
-              AdminButton(
-                  onTap: null),
+              AdminButton(onTap: null),
               SizedBox(height: 10),
-
-              StudentButton(
-                  onTap: null),
-
+              StudentButton(onTap: null),
               SizedBox(height: 10),
-
-              RegisterButton(
-                  onTap: null),
-
+              RegisterButton(onTap: null),
             ],
-
           ),
         ),
       ),

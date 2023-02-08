@@ -1,17 +1,16 @@
-import 'package:ACE/components/gender_radiobutton.dart';
-import 'package:ACE/components/register_IDnumber_textfield.dart';
-import 'package:ACE/components/register_email_textfield.dart';
-import 'package:ACE/components/register_firstname_textfield.dart';
-import 'package:ACE/components/register_lastname_textfield.dart';
-import 'package:ACE/components/register_middlename_textfield.dart';
-import 'package:ACE/components/register_password_textfield.dart';
-import 'package:ACE/components/register_submitbutton.dart';
+import 'package:ace/components/gender_radiobutton.dart';
+import 'package:ace/components/register_IDnumber_textfield.dart';
+import 'package:ace/components/register_email_textfield.dart';
+import 'package:ace/components/register_firstname_textfield.dart';
+import 'package:ace/components/register_lastname_textfield.dart';
+import 'package:ace/components/register_middlename_textfield.dart';
+import 'package:ace/components/register_password_textfield.dart';
+import 'package:ace/components/register_submitbutton.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../models/student.dart';
-
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
@@ -25,54 +24,52 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     DatabaseReference _testReference =
-    FirebaseDatabase.instance.ref().child("Users/Students/");
+        FirebaseDatabase.instance.ref().child("Users/Students/");
 
     return Scaffold(
         backgroundColor: Colors.blueGrey[300],
-      body: SafeArea(
-        child:Center(
-        child:Column(
-          children:  [
+        body: SafeArea(
+            child: Center(
+                child: Column(
+          children: [
             const SizedBox(height: 05),
             const Icon(
-                Icons.assignment_ind_rounded,
+              Icons.assignment_ind_rounded,
               size: 70,
             ),
             const SizedBox(height: 15),
             // welcome back, you've been missed!
-            const   Text(
+            const Text(
               'Registration',
               style: TextStyle(
-                color: Colors.black87,
-                fontSize: 20,
-                fontWeight: FontWeight.bold
-              ),
+                  color: Colors.black87,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
             ),
-            const  SizedBox(height: 25),
-           RegisterFirstName(
+            const SizedBox(height: 25),
+            RegisterFirstName(
                 controller: firstnameController,
                 hintText: 'First Name',
                 obscureText: false),
-            const  SizedBox(height: 10),
-             RegisterMiddleName(
+            const SizedBox(height: 10),
+            RegisterMiddleName(
                 controller: middlenameController,
                 hintText: 'Middle Name',
                 obscureText: false),
-            const  SizedBox(height: 10),
+            const SizedBox(height: 10),
             RegisterLastName(
                 controller: lastnameController,
                 hintText: 'Last Name',
                 obscureText: false),
-            const  SizedBox(height: 10),
-             RegisterIDNumber(
+            const SizedBox(height: 10),
+            RegisterIDNumber(
                 controller: idnumController,
                 hintText: 'IDnum',
                 obscureText: false),
             const SizedBox(height: 10),
             RegisterEmail(
-                controller: emailController ,
+                controller: emailController,
                 hintText: 'Email',
                 obscureText: false),
             const SizedBox(height: 10),
@@ -84,17 +81,8 @@ class RegisterPage extends StatelessWidget {
             const GenderRadioButton(),
             const SizedBox(height: 10),
 
-            ConfirmButton(
-                onTap: (){
-                }
-            ),
-
-
+            ConfirmButton(onTap: () {}),
           ],
-        )
-        )
-      )
-      );
-
+        ))));
   }
 }

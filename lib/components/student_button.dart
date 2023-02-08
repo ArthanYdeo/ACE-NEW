@@ -1,17 +1,20 @@
+import 'package:ace/pages/studentlogin_page.dart';
 import 'package:flutter/material.dart';
-import 'package:ACE/pages/studentlogin_page.dart';
 
 class StudentButton extends StatelessWidget {
-
   final Function()? onTap;
 
-  const StudentButton({super.key, required this.onTap,});
+  const StudentButton({
+    super.key,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>StudentLoginPage()));
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => StudentLoginPage()));
       },
       child: Container(
         padding: const EdgeInsets.all(15),
