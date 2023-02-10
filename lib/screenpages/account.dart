@@ -1,6 +1,15 @@
+import 'package:ace/pages/selection_page.dart';
 import 'package:flutter/material.dart';
 
-class Account extends StatelessWidget {
+
+class Account extends StatefulWidget {
+
+  @override
+  State<Account> createState() => _AccountState();
+}
+
+class _AccountState extends State<Account> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +35,7 @@ class Account extends StatelessWidget {
 
               const SizedBox(height: 35),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 135, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 140, vertical: 10),
                 decoration: const BoxDecoration(
                   color: Colors.blue,
                   borderRadius: BorderRadius.only(
@@ -259,8 +268,8 @@ class Account extends StatelessWidget {
               const SizedBox(height: 10.0),
 
               ElevatedButton(
-                onPressed: () {
-                  // Logout action
+                onPressed: (){
+                  Navigator.of(context).pop(MaterialPageRoute(builder: (BuildContext context)=>const SelectionPage()));
                 },
                 child: const Text(
                   'Log Out',
