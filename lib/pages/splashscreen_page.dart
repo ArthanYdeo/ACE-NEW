@@ -17,8 +17,7 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
       logo: Image.network(
           'https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/flutter-512.png'),
       backgroundColor: Colors.indigo.shade50,
-      showLoader: true,
-      loadingText: const Text("Loading..."),
+      showLoader: false,
       navigator: const SelectionPage(),
       durationInSeconds: 5,
     );

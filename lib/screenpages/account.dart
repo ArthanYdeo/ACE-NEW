@@ -9,22 +9,24 @@ class Account extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              const SizedBox(height: 15),
+
+              const SizedBox(height: 30),
+
               Container(
                 decoration: BoxDecoration(
                     color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(55)),
+                    borderRadius:  BorderRadius.circular(55)
+                ),
                 child: const Icon(
                   Icons.person_outline_rounded,
                   size: 150,
                   color: Colors.grey,
                 ),
               ),
+
               const SizedBox(height: 35),
               Container(
-                // margin: const EdgeInsets.symmetric(horizontal: 55),
-                padding:
-                const EdgeInsets.symmetric(horizontal: 120, vertical: 5),
+                padding: const EdgeInsets.symmetric(horizontal: 135, vertical: 10),
                 decoration: const BoxDecoration(
                   color: Colors.blue,
                   borderRadius: BorderRadius.only(
@@ -42,7 +44,7 @@ class Account extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 55),
+                margin: const EdgeInsets.symmetric(horizontal: 15),
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
                   borderRadius: const BorderRadius.only(
@@ -51,10 +53,10 @@ class Account extends StatelessWidget {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 10.0),
+                  padding: const EdgeInsets.only(left:5.0),
                   child: Column(
                     children: [
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 15),
                       const Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -65,10 +67,11 @@ class Account extends StatelessWidget {
                           ),
                         ),
                       ),
+
                       const SizedBox(height: 15.0),
+
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 60, vertical: 5),
+                        padding: const EdgeInsets.symmetric(horizontal: 60,vertical: 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
@@ -92,9 +95,9 @@ class Account extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 15.0),
+
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 60, vertical: 5),
+                        padding: const EdgeInsets.symmetric(horizontal: 60,vertical: 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
@@ -117,10 +120,11 @@ class Account extends StatelessWidget {
                           color: Colors.black87,
                         ),
                       ),
+
                       const SizedBox(height: 15.0),
+
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 60, vertical: 5),
+                        padding: const EdgeInsets.symmetric(horizontal: 70,vertical: 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
@@ -144,9 +148,9 @@ class Account extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 15.0),
+
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 60, vertical: 5),
+                        padding: const EdgeInsets.symmetric(horizontal: 53,vertical: 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
@@ -170,9 +174,9 @@ class Account extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 15.0),
+
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 60, vertical: 5),
+                        padding: const EdgeInsets.symmetric(horizontal: 55,vertical: 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
@@ -196,9 +200,9 @@ class Account extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 15.0),
+
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 60, vertical: 5),
+                        padding: const EdgeInsets.symmetric(horizontal: 80,vertical: 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
@@ -222,9 +226,9 @@ class Account extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 15.0),
+
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 60, vertical: 5),
+                        padding: const EdgeInsets.symmetric(horizontal: 80,vertical: 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
@@ -247,12 +251,13 @@ class Account extends StatelessWidget {
                           color: Colors.black87,
                         ),
                       ),
-                      const SizedBox(height: 15.0),
+                      const SizedBox(height: 10.0),
                     ],
                   ),
                 ),
               ),
               const SizedBox(height: 10.0),
+
               ElevatedButton(
                 onPressed: () {
                   // Logout action
