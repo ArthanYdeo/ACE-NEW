@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 class StudentPassword extends StatefulWidget {
   final controller;
   final String hintText;
-  final bool obscureText;
+
 
   const StudentPassword({super.key,
     required this.controller,
     required this.hintText,
-    required this.obscureText,
   });
 
   @override
@@ -21,7 +20,7 @@ class _StudentPasswordState extends State<StudentPassword> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40),
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: TextField(
         controller: widget.controller,
         obscureText: _obscureText,

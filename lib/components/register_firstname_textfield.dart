@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-
 class RegisterFirstName extends StatefulWidget {
   final controller;
   final String hintText;
-  final bool obscureText;
-
 
   const RegisterFirstName({
     super.key,
     required this.controller,
     required this.hintText,
-    required this.obscureText,
   });
 
   @override
@@ -19,18 +15,21 @@ class RegisterFirstName extends StatefulWidget {
 }
 
 class _MyTextFieldState extends State<RegisterFirstName> {
+  bool _obscureText = false;
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: TextField(
+        controller: widget.controller,
+        obscureText: _obscureText,
         decoration: InputDecoration(
-          hintText: 'First Name',
-          focusedBorder: OutlineInputBorder(
+          hintText: widget.hintText,
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),
           fillColor: Colors.white,

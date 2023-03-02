@@ -1,3 +1,4 @@
+import 'package:ace/constant/colors.dart';
 import 'package:ace/screenpages/account.dart';
 import 'package:ace/screenpages/grades.dart';
 import 'package:flutter/material.dart';
@@ -21,12 +22,12 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blueGrey[300],
+        backgroundColor: ColorPalette.accentBlack,
         body: pages[pageIndex],
         bottomNavigationBar: Container(
           height: 60,
           decoration: const BoxDecoration(
-            color: Colors.teal,
+            color: ColorPalette.secondary,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -41,12 +42,12 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                 icon: pageIndex == 0
                     ? const Icon(
                         Icons.auto_stories,
-                        color: Colors.white,
+                        color: Colors.black,
                         size: 35,
                       )
                     : const Icon(
                         Icons.auto_stories_outlined,
-                        color: Colors.white,
+                        color: Colors.black,
                         size: 35,
                       ),
               ),
@@ -60,12 +61,12 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                 icon: pageIndex == 1
                     ? const Icon(
                         Icons.auto_awesome,
-                        color: Colors.white,
+                        color: Colors.black,
                         size: 35,
                       )
                     : const Icon(
                         Icons.auto_awesome_outlined,
-                        color: Colors.white,
+                        color: Colors.black,
                         size: 35,
                       ),
               ),
@@ -79,12 +80,12 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                 icon: pageIndex == 2
                     ? const Icon(
                         Icons.person,
-                        color: Colors.white,
+                        color: Colors.black,
                         size: 35,
                       )
                     : const Icon(
                         Icons.person_outline,
-                        color: Colors.white,
+                        color: Colors.black,
                         size: 35,
                       ),
               ),

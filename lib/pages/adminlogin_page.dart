@@ -1,6 +1,7 @@
 import 'package:ace/components/admin_button.dart';
 import 'package:ace/components/admin_login_textfield.dart';
 import 'package:ace/components/admin_password_textfield.dart';
+import 'package:ace/constant/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../components/admin_loginbutton.dart';
@@ -13,7 +14,7 @@ class AdminLoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.blueGrey[300],
+        backgroundColor: ColorPalette.accentBlack,
         body: SafeArea(
           child: Center(
             child: Column(
@@ -21,19 +22,19 @@ class AdminLoginPage extends StatelessWidget {
                 const SizedBox(height: 50),
 
                 // logo
-                Icon(
+                const Icon(
                   Icons.account_circle_rounded,
-                  color: Colors.grey.shade700,
+                  color: ColorPalette.secondary,
                   size: 100,
                 ),
                 const SizedBox(height: 50),
-
                 // welcome back, you've been missed!
                 const Text(
                   'Administrator Login',
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+                    fontFamily: 'Lato',
+                    fontWeight: FontWeight.w900,
+                    color: ColorPalette.secondary,
                     fontSize: 25,
                   ),
                 ),

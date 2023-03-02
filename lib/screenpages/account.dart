@@ -1,3 +1,4 @@
+import 'package:ace/constant/colors.dart';
 import 'package:ace/pages/selection_page.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class _AccountState extends State<Account> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[300],
+      backgroundColor: ColorPalette.accentBlack,
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -23,33 +24,33 @@ class _AccountState extends State<Account> {
 
               Container(
                 decoration: BoxDecoration(
-                    color: Colors.grey[200],
+                    color: Colors.white,
                     borderRadius:  BorderRadius.circular(55)
                 ),
                 child: const Icon(
                   Icons.person_outline_rounded,
                   size: 150,
-                  color: Colors.grey,
+                  color: Colors.black,
                 ),
               ),
 
               const SizedBox(height: 35),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 140, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 128, vertical: 10),
                 decoration: const BoxDecoration(
-                  color: Colors.blue,
+                  color: Colors.black,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
                   ),
                 ),
                 child: const Text(
-                  'Personal Info',
+                  'PERSONAL INFO',
                   style: TextStyle(
-                    fontSize: 15.0,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      color: ColorPalette.secondary,
+                      fontFamily: 'Lato',
+                      fontWeight: FontWeight.w700,
+                      fontSize: 15),
                 ),
               ),
               Container(
@@ -92,6 +93,7 @@ class _AccountState extends State<Account> {
                           'Student Name',
                           style: TextStyle(
                             fontSize: 16.0,
+                            fontFamily: 'Lato',
                             color: Colors.black38,
                           ),
                         ),
@@ -100,6 +102,7 @@ class _AccountState extends State<Account> {
                         'Name',
                         style: TextStyle(
                           fontSize: 13,
+                          fontFamily: 'Lato',
                           color: Colors.black87,
                         ),
                       ),
@@ -117,6 +120,7 @@ class _AccountState extends State<Account> {
                         child: const Text(
                           'Phinma Email',
                           style: TextStyle(
+                            fontFamily: 'Lato',
                             fontSize: 16.0,
                             color: Colors.black38,
                           ),
@@ -125,6 +129,7 @@ class _AccountState extends State<Account> {
                       const Text(
                         'Email',
                         style: TextStyle(
+                          fontFamily: 'Lato',
                           fontSize: 13,
                           color: Colors.black87,
                         ),
@@ -144,6 +149,7 @@ class _AccountState extends State<Account> {
                         child: const Text(
                           'Student ID',
                           style: TextStyle(
+                            fontFamily: 'Lato',
                             fontSize: 16.0,
                             color: Colors.black38,
                           ),
@@ -153,6 +159,7 @@ class _AccountState extends State<Account> {
                         'ID Number',
                         style: TextStyle(
                           fontSize: 13,
+                          fontFamily: 'Lato',
                           color: Colors.black87,
                         ),
                       ),
@@ -171,6 +178,7 @@ class _AccountState extends State<Account> {
                           'Home Address',
                           style: TextStyle(
                             fontSize: 16.0,
+                            fontFamily: 'Lato',
                             color: Colors.black38,
                           ),
                         ),
@@ -179,6 +187,7 @@ class _AccountState extends State<Account> {
                         'Address',
                         style: TextStyle(
                           fontSize: 13,
+                          fontFamily: 'Lato',
                           color: Colors.black87,
                         ),
                       ),
@@ -197,6 +206,7 @@ class _AccountState extends State<Account> {
                           'Phone Number',
                           style: TextStyle(
                             fontSize: 16.0,
+                            fontFamily: 'Lato',
                             color: Colors.black38,
                           ),
                         ),
@@ -205,6 +215,7 @@ class _AccountState extends State<Account> {
                         'Phone Number',
                         style: TextStyle(
                           fontSize: 13,
+                          fontFamily: 'Lato',
                           color: Colors.black87,
                         ),
                       ),
@@ -223,6 +234,7 @@ class _AccountState extends State<Account> {
                           'College',
                           style: TextStyle(
                             fontSize: 16.0,
+                            fontFamily: 'Lato',
                             color: Colors.black38,
                           ),
                         ),
@@ -231,6 +243,7 @@ class _AccountState extends State<Account> {
                         'Department',
                         style: TextStyle(
                           fontSize: 13,
+                          fontFamily: 'Lato',
                           color: Colors.black87,
                         ),
                       ),
@@ -249,6 +262,7 @@ class _AccountState extends State<Account> {
                           'Course',
                           style: TextStyle(
                             fontSize: 16.0,
+                            fontFamily: 'Lato',
                             color: Colors.black38,
                           ),
                         ),
@@ -257,6 +271,7 @@ class _AccountState extends State<Account> {
                         'Course',
                         style: TextStyle(
                           fontSize: 13,
+                          fontFamily: 'Lato',
                           color: Colors.black87,
                         ),
                       ),
@@ -266,19 +281,28 @@ class _AccountState extends State<Account> {
                 ),
               ),
               const SizedBox(height: 10.0),
-
-              ElevatedButton(
+Container(
+  padding: const EdgeInsets.only
+    (left: 50, right: 50),
+  width: 355,
+  height: 50,
+               child: ElevatedButton(
+                 style: ElevatedButton.styleFrom(
+                     primary: Colors.white
+                 ),
                 onPressed: (){
                   Navigator.of(context).pop(MaterialPageRoute(builder: (BuildContext context)=>const SelectionPage()));
                 },
                 child: const Text(
                   'Log Out',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
+                    fontFamily: 'Lato',
                   ),
                 ),
               ),
-              const SizedBox(height: 25.0),
+),
+              const SizedBox(height: 25.0,),
             ],
           ),
         ),

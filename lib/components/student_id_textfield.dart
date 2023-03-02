@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class StudentID extends StatefulWidget {
   final controller;
   final String hintText;
-  final bool obscureText;
+
 
   const StudentID({
     super.key,
     required this.controller,
     required this.hintText,
-    required this.obscureText,
+
   });
 
   @override
@@ -17,20 +17,22 @@ class StudentID extends StatefulWidget {
 }
 
 class _MyTextFieldState extends State<StudentID> {
+  bool _obscureText = false;
+
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 40),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: TextField(
+        controller: widget.controller,
+        obscureText: _obscureText,
         decoration: InputDecoration(
-          hintText: 'Student ID No. (XX-XXXX-XXXXXX)',
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey),
+          hintText: widget.hintText,
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
           ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.white,
-            ),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
           ),
           fillColor: Colors.white,
           filled: true,

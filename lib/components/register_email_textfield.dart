@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 class RegisterEmail extends StatefulWidget {
   final controller;
   final String hintText;
-  final bool obscureText;
 
   const RegisterEmail({
     super.key,
     required this.controller,
     required this.hintText,
-    required this.obscureText,
   });
 
   @override
@@ -17,17 +15,21 @@ class RegisterEmail extends StatefulWidget {
 }
 
 class _MyTextFieldState extends State<RegisterEmail> {
+  bool _obscureText = false;
+
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: TextField(
+        controller: widget.controller,
+        obscureText: _obscureText,
         decoration: InputDecoration(
-          hintText: 'School issued email',
-          focusedBorder: OutlineInputBorder(
+          hintText: widget.hintText,
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),
           fillColor: Colors.white,

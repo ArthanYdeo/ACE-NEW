@@ -1,3 +1,4 @@
+import 'package:ace/constant/colors.dart';
 import 'package:flutter/material.dart';
 
 class Grades extends StatefulWidget {
@@ -10,9 +11,9 @@ class Grades extends StatefulWidget {
 class _GradesState extends State<Grades> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        backgroundColor: Colors.blueGrey[300],
-        body: const Center(
+    return  const Scaffold(
+        backgroundColor: ColorPalette.accentBlack,
+        body: Center(
         child: Text('',
         style: TextStyle(
         fontWeight: FontWeight.bold,

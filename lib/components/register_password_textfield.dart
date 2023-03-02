@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 class RegisterPassword extends StatefulWidget {
   final controller;
   final String hintText;
-  final bool obscureText;
 
-  const RegisterPassword({super.key,
+  const RegisterPassword({
+    super.key,
     required this.controller,
     required this.hintText,
-    required this.obscureText,
   });
 
   @override
@@ -16,7 +15,7 @@ class RegisterPassword extends StatefulWidget {
 }
 
 class _StudentPasswordState extends State<RegisterPassword> {
-  bool _obscureText = true;
+  bool _obscureText = false;
 
   @override
   Widget build(BuildContext context) {
@@ -48,4 +47,3 @@ class _StudentPasswordState extends State<RegisterPassword> {
     );
   }
 }
-

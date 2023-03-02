@@ -8,7 +8,6 @@ class GenderRadioButton extends StatefulWidget {
 }
 
 class _GenderRadioButtonState extends State<GenderRadioButton> {
-
   String radioButtonItem = '';
   int id = 0;
 
@@ -19,8 +18,7 @@ class _GenderRadioButtonState extends State<GenderRadioButton> {
         Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text('Gender ' + '$radioButtonItem',
-                style: const TextStyle(fontSize: 15))
-        ),
+                style: const TextStyle(fontSize: 15))),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -36,12 +34,8 @@ class _GenderRadioButtonState extends State<GenderRadioButton> {
             ),
             const Text(
               'Male',
-              style:
-              TextStyle(
-                  fontSize: 15
-              ),
+              style: TextStyle(fontSize: 15),
             ),
-
             Radio(
               value: 2,
               groupValue: id,
@@ -58,7 +52,6 @@ class _GenderRadioButtonState extends State<GenderRadioButton> {
                 fontSize: 15,
               ),
             ),
-
           ],
         ),
       ],

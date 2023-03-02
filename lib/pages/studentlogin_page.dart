@@ -1,21 +1,31 @@
 import 'package:ace/components/student_password_fieldtext.dart';
-import 'package:ace/components/studentlogin_button.dart';
+import 'package:ace/constant/colors.dart';
+import 'package:ace/pages/homescreen_page.dart';
+import 'package:ace/pages/registration_page.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../components/register_button.dart';
+import 'package:hive/hive.dart';
 import '../components/student_id_textfield.dart';
+import 'dart:convert';
+import '../dialogs/alertdialog.dart';
+import '../models/student.dart';
+
 
 class StudentLoginPage extends StatelessWidget {
   StudentLoginPage({super.key});
 
   // text editing controllers
-  final usernameController = TextEditingController();
-  final passwordController = TextEditingController();
+  final TextEditingController _idnum = TextEditingController();
+  final TextEditingController _pass = TextEditingController();
+
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.blueGrey[300],
+        backgroundColor: ColorPalette.accentBlack,
         body: SafeArea(
           child: Center(
             child: Column(
@@ -23,73 +33,101 @@ class StudentLoginPage extends StatelessWidget {
                 const SizedBox(height: 50),
 
                 // logo
-                Icon(
+                const Icon(
                   Icons.account_circle_rounded,
-                  color: Colors.grey.shade700,
+                  color: ColorPalette.secondary,
                   size: 100,
                 ),
                 const SizedBox(height: 50),
 
                 // welcome back, you've been missed!
                 const Text(
-                  'Student Login',
+                  'STUDENT LOGIN',
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                    fontSize: 25,
-                  ),
+                      color: Colors.white,
+                      fontFamily: 'Lato',
+                      fontWeight: FontWeight.w900,
+                      fontSize: 25),
                 ),
                 const SizedBox(height: 25),
-
                 // username text-field
                 StudentID(
-                    controller: usernameController,
-                    hintText: 'Email',
-                    obscureText: false),
-
+                    controller: _idnum, hintText: 'Student Number',),
                 const SizedBox(height: 10),
-
                 // password text-field
                 StudentPassword(
-                    controller: passwordController,
-                    hintText: 'Password',
-                    obscureText: true),
-
+                    controller: _pass, hintText: 'Password',),
                 const SizedBox(height: 10),
-
                 // forgot password
-                const Text(
-                  'Forgot Password?',
-                  style: TextStyle(color: Colors.grey),
-                ),
-
                 const SizedBox(height: 10),
-
-                // sign in button
-                const StudentLoginButton(onTap: null),
-
-                const SizedBox(height: 7),
-
-                // Text(
-                //   '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
-                //   style: TextStyle(color: Colors.grey,
-                //       fontWeight: FontWeight.bold),
-                // ),
-
-                const SizedBox(height: 5),
-
-                const Text(
-                  "Doesn't have an account yet?",
-                  style: TextStyle(color: Colors.black26),
+                //Sign in button
+                Container(
+                  padding: const EdgeInsets.only(left: 25.0, right: 25),
+                  width: 355,
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.black
+                    ),
+                    onPressed:() {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => const HomeScreenPage()));
+                    },
+                    child: const Text(
+                      'LOGIN',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.5,
+                          fontFamily: 'Lato',
+                          fontSize: 14),
+                    ),
+                  ),
                 ),
-
-                const SizedBox(height: 5),
-
-                const RegisterButton(onTap: null)
+             const SizedBox(
+               height: 10,
+             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+            const Text(
+            "Don't have an account? ",
+              style: TextStyle(
+                  color: ColorPalette.secondary,
+                  fontFamily: 'Lato',
+                  fontSize: 12),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                    RegisterPage(),
+                  ),
+                );
+              },
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(
+                      fontSize: 10,
+                    fontFamily: 'Lato',
+                  ),
+                ),
+                onPressed: () {Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) =>
+                          RegisterPage(),
+                    ),
+                );
+                },
+                child: const Text('Sign Up'),
+              ),
+            ),
+              ],
+            ),
               ],
             ),
           ),
-        ) // column
-        ); //scaffold
+        ),
+    );
   }
 }
