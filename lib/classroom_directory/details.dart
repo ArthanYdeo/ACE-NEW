@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ace/models/classroom.dart';
+import '../constant/colors.dart';
 import 'detail_page1.dart';
-import 'detail_page2.dart';
-import 'detail_page3.dart';
-import 'detail_page4.dart';
-import 'detail_page5.dart';
-import 'detail_page6.dart';
-import 'detail_page7.dart';
-import 'detail_page8.dart';
 
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
-
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -89,6 +82,8 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               );
-            }));
+            }
+            ),
+    );
   }
 }
