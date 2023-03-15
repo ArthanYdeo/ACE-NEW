@@ -9,19 +9,91 @@ class Grades extends StatefulWidget {
 }
 
 class _GradesState extends State<Grades> {
+  List<Map<String, dynamic>> _subjectList = [
+    {'code': 'ITE 115', 'grade': '95'},
+    {'code': 'ITE 300', 'grade': '95'},
+    {'code': 'ITE 302', 'grade': '95'},
+    {'code': 'ITE 298', 'grade': '95'},
+    {'code': 'ITE 304', 'grade': '95'},
+    {'code': 'ITE 303', 'grade': '95'},
+    {'code': 'ITE 031', 'grade': '95'},
+  ];
+
+  List<String> _gradeList = ['P1', 'P2', 'P3'];
+
+  String _selectedGrade = 'P1';
+
   @override
   Widget build(BuildContext context) {
-    return  const Scaffold(
-        backgroundColor: ColorPalette.accentBlack,
-        body: Center(
-        child: Text('',
-        style: TextStyle(
-        fontWeight: FontWeight.bold,
-        color: Colors.black87,
-        fontSize: 25,
-    ),
-    )
-    )
+    return Scaffold(
+      backgroundColor: ColorPalette.accentBlack,
+      body: Center(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.white.withOpacity(0.5),
+                width: 1.0,
+              ),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: DataTable(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.white,
+                  width: 1.0,
+                ),
+              ),
+              //dataRowHeight: 60.0, // set the height of the rows
+              columns: [
+                DataColumn(
+                  label: Text('Subject Code'),
+                ),
+                DataColumn(
+                  label: DropdownButton<String>(
+                    value: _selectedGrade,
+                    items: _gradeList.map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedGrade = value!;
+                      });
+                    },
+                  ),
+                ),
+              ],
+              rows: _subjectList.map(
+                    (subject) {
+                  return DataRow(cells: [
+                    DataCell(Text(subject['code'])),
+                    DataCell(
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 16.0,
+                          vertical: 8.0,
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.white,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(4.0),
+                        ),
+                        child: Text(subject['grade']),
+                      ),
+                    ),
+                  ]);
+                },
+              ).toList(),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

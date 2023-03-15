@@ -26,11 +26,9 @@ class _MyTextFieldState extends State<RegisterLastName> {
         obscureText: _obscureText,
         decoration: InputDecoration(
           hintText: widget.hintText,
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-          ),
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15.0),
+            // borderSide: BorderSide(color: Colors.white),
           ),
           fillColor: Colors.white,
           filled: true,

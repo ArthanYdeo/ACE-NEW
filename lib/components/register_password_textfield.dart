@@ -34,11 +34,8 @@ class _StudentPasswordState extends State<RegisterPassword> {
               });
             },
           ),
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-          ),
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15.0),
           ),
           fillColor: Colors.white,
           filled: true,
