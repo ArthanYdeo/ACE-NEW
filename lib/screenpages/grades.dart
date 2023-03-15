@@ -33,10 +33,10 @@ class _GradesState extends State<Grades> {
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color: Colors.white.withOpacity(0.5),
-                width: 1.0,
+                color: Colors.white,
+                width: 2.0,
               ),
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(9.0),
             ),
             child: DataTable(
               decoration: BoxDecoration(
@@ -48,7 +48,9 @@ class _GradesState extends State<Grades> {
               //dataRowHeight: 60.0, // set the height of the rows
               columns: [
                 DataColumn(
-                  label: Text('Subject Code'),
+                  label: Text(
+                      'Subject Code',
+                    style: TextStyle(color: Colors.white),),
                 ),
                 DataColumn(
                   label: DropdownButton<String>(
@@ -80,9 +82,9 @@ class _GradesState extends State<Grades> {
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: Colors.white,
-                            width: 1.0,
+                            width: 2.0,
                           ),
-                          borderRadius: BorderRadius.circular(4.0),
+                          borderRadius: BorderRadius.circular(5.0),
                         ),
                         child: Text(subject['grade']),
                       ),
