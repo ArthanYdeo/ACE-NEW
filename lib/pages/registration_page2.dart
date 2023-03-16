@@ -13,7 +13,7 @@ class NextPage extends StatefulWidget {
 class _NextPageState extends State<NextPage> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _pass = TextEditingController();
-  final bool _obscureText = true;
+  bool _obscureText = true;
 
   String? sexValue;
   String? deptValue;
@@ -28,7 +28,7 @@ class _NextPageState extends State<NextPage> {
           Container(
             child: Center(
               child: Container(
-                height: 520,
+                height: 540,
                 width: 360,
                 margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
@@ -65,13 +65,97 @@ class _NextPageState extends State<NextPage> {
                             fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(
+                        height: 15,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 25, right: 25),
+                        child: TextField(
+                          keyboardType: TextInputType.text,
+                          controller: _email,
+                          decoration: const InputDecoration(
+                            labelText: 'Email Address',
+                            labelStyle: TextStyle(
+                              color: ColorPalette.accentBlack,
+                            ),
+                            hintText: 'Enter your Email Address',
+                            hintStyle:
+                            TextStyle(fontSize: 12, color: ColorPalette.accentBlack,),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: ColorPalette.accentBlack,),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16.0),
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: ColorPalette.accentBlack,
+                              ),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16.0),
+                              ),
+                            ),
+                            prefixIcon: Icon(
+                              Icons.assignment_ind_rounded,
+                              color: ColorPalette.accentBlack,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
                         height: 10,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 25, right: 25),
+                          child: TextField(
+                            controller: _pass,
+                            obscureText: _obscureText,
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                              labelStyle: const TextStyle(
+                                fontSize: 16,
+                                color: ColorPalette.accentBlack,
+                              ),
+                              enabledBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(color: ColorPalette.accentBlack),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(16.0),
+                                ),
+                              ),
+                              focusedBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: ColorPalette.accentBlack,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(12.0),
+                                ),
+                              ),
+                              hintText: 'Enter a strong password',
+                              hintStyle: const TextStyle(
+                                  fontSize: 12, color: Colors.grey),
+                              prefixIcon: const Icon(
+                                Icons.key,
+                                color: ColorPalette.accentBlack,
+                              ),
+                              iconColor: ColorPalette.accentBlack,
+                              suffixIcon: IconButton(
+                                color: ColorPalette.accentBlack,
+                                icon: _obscureText
+                                    ? const Icon(Icons.visibility_off)
+                                    : const Icon(Icons.visibility),
+                                onPressed: () {
+                                  setState(() {
+                                    _obscureText = !_obscureText;
+                                  });
+                                },
+                              ),
+                            ),
+                          ),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                   Container(
-                    width: 290,
+                    width: 300,
                     height: 60,
                     decoration: const BoxDecoration(
                       color: ColorPalette.hintColor,
@@ -115,7 +199,7 @@ class _NextPageState extends State<NextPage> {
                   ),
                       const SizedBox(height: 10),
                       Container(
-                        width: 290,
+                        width: 300,
                         height: 60,
                         decoration: const BoxDecoration(
                           color: ColorPalette.hintColor,
@@ -160,7 +244,7 @@ class _NextPageState extends State<NextPage> {
                       ),
                       const SizedBox(height: 10),
                       Container(
-                        width: 290,
+                        width: 300,
                         height: 60,
                         decoration: const BoxDecoration(
                           color: ColorPalette.hintColor,
@@ -173,7 +257,7 @@ class _NextPageState extends State<NextPage> {
                           hint: const Text(
                             "DEPARTMENT",
                             style: TextStyle(
-                              color: ColorPalette.hintColor,
+                              color: ColorPalette.secondary,
                               fontFamily: 'Lato',
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
@@ -202,7 +286,32 @@ class _NextPageState extends State<NextPage> {
                           ),
                         ),
                       ),
-
+                      const SizedBox(height: 15,
+                      ),
+                      Container(
+                          padding: const EdgeInsets.only(left: 35, right: 35),
+                          width: 355,
+                          height: 50,
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.black
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (BuildContext context) => SelectionPage()));
+                              },
+                              child:const Center(
+                                  child: Text(
+                                    "REGISTER",
+                                    style: TextStyle(
+                                        color: ColorPalette.secondary,
+                                        fontFamily: 'Lato',
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 20),
+                                  )
+                              )
+                          )
+                      )
                     ],
                   ),
                 ),

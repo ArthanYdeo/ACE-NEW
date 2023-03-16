@@ -208,7 +208,7 @@ class RegisterPage extends StatelessWidget {
                             ),
                           ),
                           prefixIcon: Icon(
-                            Icons.person,
+                            Icons.assignment_ind_rounded,
                             color: ColorPalette.accentBlack,
                           ),
                         ),
@@ -223,7 +223,6 @@ class RegisterPage extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                       primary: Colors.black
                   ),
-
                     onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => NextPage()));
