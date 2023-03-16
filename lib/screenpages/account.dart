@@ -166,34 +166,6 @@ class _AccountState extends State<Account> {
                       const SizedBox(height: 15.0),
 
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 53,vertical: 5),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(
-                            color: Colors.grey,
-                          ),
-                          borderRadius: const BorderRadius.horizontal(),
-                        ),
-                        child: const Text(
-                          'Home Address',
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            fontFamily: 'Lato',
-                            color: Colors.black38,
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        'Address',
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontFamily: 'Lato',
-                          color: Colors.black87,
-                        ),
-                      ),
-                      const SizedBox(height: 15.0),
-
-                      Container(
                         padding: const EdgeInsets.symmetric(horizontal: 55,vertical: 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -220,7 +192,6 @@ class _AccountState extends State<Account> {
                         ),
                       ),
                       const SizedBox(height: 15.0),
-
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 80,vertical: 5),
                         decoration: BoxDecoration(

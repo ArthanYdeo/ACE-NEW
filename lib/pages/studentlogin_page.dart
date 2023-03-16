@@ -18,7 +18,7 @@ class StudentLoginPage extends StatefulWidget {
 class _LoginPageState extends State<StudentLoginPage> {
   final TextEditingController _idnum = TextEditingController();
   final TextEditingController _pass = TextEditingController();
-  // final box = Hive.box("_loginbox");
+  final _loginbox = Hive.box("_loginbox");
   DatabaseReference dbReference =
   FirebaseDatabase.instance.ref().child("Users/");
 
