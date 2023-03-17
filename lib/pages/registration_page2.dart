@@ -28,7 +28,7 @@ class _NextPageState extends State<NextPage> {
           Container(
             child: Center(
               child: Container(
-                height: 540,
+                height: 560,
                 width: 360,
                 margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
@@ -69,9 +69,20 @@ class _NextPageState extends State<NextPage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 25, right: 25),
-                        child: TextField(
+                        child: TextFormField(
                           keyboardType: TextInputType.text,
                           controller: _email,
+                          validator: (value) {
+                            // Email RegEx Validation
+                            final bool emailValid = RegExp(
+                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                .hasMatch(value!);
+                            if (value.isNotEmpty && emailValid) {
+                              return null;
+                            } else {
+                              return "Invalid email address.";
+                            }
+                          },
                           decoration: const InputDecoration(
                             labelText: 'Email Address',
                             labelStyle: TextStyle(
@@ -106,9 +117,21 @@ class _NextPageState extends State<NextPage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 25, right: 25),
-                          child: TextField(
+                          child: TextFormField(
                             controller: _pass,
                             obscureText: _obscureText,
+                            enableSuggestions: false,
+                            autocorrect: false,
+                            validator: (value) {
+                              final bool passwordValid = RegExp(
+                                  r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.+=_]).{8,}$")
+                                  .hasMatch(value!);
+                              if (passwordValid) {
+                                return null;
+                              } else {
+                                return "Invalid Input.";
+                              }
+                            },
                             decoration: InputDecoration(
                               labelText: 'Password',
                               labelStyle: const TextStyle(
