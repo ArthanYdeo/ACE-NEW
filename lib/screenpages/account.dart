@@ -261,7 +261,7 @@ Container(
   height: 50,
                child: ElevatedButton(
                  style: ElevatedButton.styleFrom(
-                     primary: ColorPalette.hintColor,
+                     primary: Colors.black,
                  ),
                  onPressed: () {
                    DialogUnsuccessful(

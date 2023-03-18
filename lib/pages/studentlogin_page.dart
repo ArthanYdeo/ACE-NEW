@@ -5,7 +5,9 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import '../constant/colors.dart';
-import '../dialogs/alertdialog.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '../dialogs/dialog_loading.dart';
+import '../dialogs/dialog_unsuccessful.dart';
 import 'homescreen_page.dart';
 
 class StudentLoginPage extends StatefulWidget {
@@ -19,13 +21,20 @@ class _LoginPageState extends State<StudentLoginPage> {
   final TextEditingController _idnum = TextEditingController();
   final TextEditingController _pass = TextEditingController();
   final _loginbox = Hive.box("_loginbox");
-  DatabaseReference dbReference =
-  FirebaseDatabase.instance.ref().child("Users/");
-
   bool _hidePassword = true;
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _idnum.dispose();
+    _pass.dispose();
+    super.dispose();
+  }
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _formKey,
       resizeToAvoidBottomInset: false,
       backgroundColor: ColorPalette.accentBlack,
       body: Stack(
@@ -66,9 +75,20 @@ class _LoginPageState extends State<StudentLoginPage> {
                       const SizedBox(height: 35),
                       Padding(
                         padding: const EdgeInsets.only(left: 25, right: 25),
-                        child: TextField(
+                        child: TextFormField(
                           keyboardType: TextInputType.text,
                           controller: _idnum,
+                          validator: (value) {
+                            // Email RegEx Validation
+                            final bool emailValid = RegExp(
+                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                .hasMatch(value!);
+                            if (value.isNotEmpty && emailValid) {
+                              return null;
+                            } else {
+                              return "Invalid student number.";
+                            }
+                          },
                           decoration: const InputDecoration(
                             labelText: 'Student Number',
                             labelStyle: TextStyle(
@@ -153,90 +173,161 @@ class _LoginPageState extends State<StudentLoginPage> {
                         width: 355,
                         height: 50,
                         child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black
-                          ),
                           onPressed: () {
-                            dbReference.get().then((snapshot) {
-                              for (final data in snapshot.children) {
-                                if (data.key == _idnum.text) {
-                                  Map<String, dynamic> myObj =
-                                  jsonDecode(jsonEncode(data.value));
-                                  Student myUserobj = Student.fromJson(myObj);
-                                  if (myUserobj.password == _pass.text) {
-                                    Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                        builder: (BuildContext context) =>
-                                        const HomeScreenPage(),
-                                      ),
-                                    );
-                                  } else {
-                                    debugPrint('Does not exist');
-                                    continue;
-                                  }
-                                }
-                              }
-                            });
-                          },
-                          child: const Text(
-                            'LOGIN',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                letterSpacing: 0.5,
-                                fontFamily: 'Lato',
-                                fontSize: 14),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          const Text(
-                            "Don't have an account? ",
-                            style: TextStyle(
-                                color: ColorPalette.accentBlack,
-                                fontFamily: 'Lato',
-                                fontSize: 12),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      RegisterPage(),
-                                ),
-                              );
-                            },
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                textStyle: const TextStyle(
-                                  fontSize: 10,
-                                  fontFamily: 'Lato',
-                                ),
-                              ),
-                              onPressed: () {Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      RegisterPage(),
-                                ),
-                              );
-                              },
-                              child: const Text('Sign Up'),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-      ),
-    )
-    )
-    ]
-    )
+                            if (!_formKey.currentState!.validate()) {
+                              return;
+                            }
+                            DialogLoading(subtext: "Logging in.")
+                                .buildLoadingScreen(context);
+    logIn(
+    email: _idnum.text.trim(),
+    password: _pass.text.trim(),
+    context: context,
+    ).catchError(
+    (err) {
+    if (err == 'user-not-found') {
+    Navigator.of(context, rootNavigator: true).pop();
+    DialogUnsuccessful(
+    headertext: "User not found!",
+    subtext: "Seems like we can't find that user.",
+    textButton: "Close",
+    callback: () {
+    Navigator.of(context, rootNavigator: true).pop();
+    },
+    ).buildUnsuccessfulScreen(context);
+    } else if (err == 'wrong-password') {
+    Navigator.of(context, rootNavigator: true).pop();
+    DialogUnsuccessful(
+    headertext: "Wrong password!",
+    subtext: "Whoops! You entered a wrong password!",
+    textButton: "Close",
+    callback: () {
+    Navigator.of(context, rootNavigator: true).pop();
+    },
+    ).buildUnsuccessfulScreen(context);
+    } else {
+    Navigator.of(context, rootNavigator: true).pop();
+    DialogUnsuccessful(
+    headertext: err,
+    subtext: "Looks like we have an error!",
+    textButton: "Close",
+    callback: () {
+    Navigator.of(context, rootNavigator: true).pop();
+    },
+    ).buildUnsuccessfulScreen(context);
+    }
+    },
+    ).then((value) {
+    if (value == null) {
+    Navigator.of(context, rootNavigator: true).pop();
+    DialogUnsuccessful(
+    headertext: "Error",
+    subtext: "Please try again later!",
+    textButton: "Close",
+    callback: () {
+    Navigator.of(context, rootNavigator: true).pop();
+    },
+    ).buildUnsuccessfulScreen(context);
+    } else {
+    Navigator.of(context).pushAndRemoveUntil(
+    MaterialPageRoute(
+    builder: (context) => const HomeScreenPage())),
+    (Route<dynamic> route) => true);
+    }
+    });
+    },
+    style: ButtonStyle(
+    backgroundColor: MaterialStateProperty.all<Color>(
+    ColorPalette.accentBlack,
+    ),
+    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+    RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(50),
+    ),
+    ),
+    ),
+    child: const Text(
+    "LOGIN",
+    style: TextStyle(
+    color: ColorPalette.secondary,
+    fontFamily: 'Inter',
+    fontSize: 18,
+    fontWeight: FontWeight.w900,
+    ),
+    ),
+    ),
+    ),
+    const SizedBox(height: 10),
+    const Text(
+    "or",
+    style: TextStyle(
+    color: ColorPalette.secondary,
+    fontFamily: 'Lato',
+    fontSize: 18,
+    fontWeight: FontWeight.w300,
+    ),
+    ),
+    const SizedBox(height: 10),
+    SizedBox(
+    width: 150,
+    height: 50,
+    child: ElevatedButton(
+    onPressed: () {
+    // Go to the signup
+    Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const RegisterPage())),
     );
+    },
+    style: ButtonStyle(
+    backgroundColor: MaterialStateProperty.all<Color>(
+    ColorPalette.accentBlack,
+    ),
+    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+    RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(50),
+    ),
+    ),
+    ),
+    child: const Text(
+    "SIGN UP!",
+    style: TextStyle(
+    color: ColorPalette.secondary,
+    fontFamily: 'Inter',
+    fontSize: 18,
+    fontWeight: FontWeight.w900,
+    ),
+    ),
+    ),
+    ),
+    ],
+    ),
+    ],
+    ),
+    );
+    }
+
+  Future logIn(
+      {required String email, password, required BuildContext context}) async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return "Successfully login";
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        throw e.code;
+      } else if (e.code == 'wrong-password') {
+        throw e.code;
+      }
+      throw e.code;
+    }
+  }
+
+  void _togglePasswordVisibility() {
+    setState(() {
+      _obscu = !_showPassword;
+    });
   }
 }
