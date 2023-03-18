@@ -30,13 +30,22 @@ class _GradesState extends State<Grades> {
       body: Center(
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Container(
+          child:  Container(
+            height: 410,
+            width: 360,
+            margin: const EdgeInsets.symmetric(horizontal: 20),
             decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.white,
-                width: 2.0,
+              borderRadius: const BorderRadius.all(
+                Radius.circular(30),
               ),
-              borderRadius: BorderRadius.circular(9.0),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  blurRadius: 5,
+                  spreadRadius: 1,
+                ),
+              ],
             ),
             child: DataTable(
               decoration: BoxDecoration(
@@ -49,8 +58,11 @@ class _GradesState extends State<Grades> {
               columns: [
                 DataColumn(
                   label: Text(
-                      'Subject Code',
-                    style: TextStyle(color: Colors.white),),
+                      'SUBJECT CODE',
+                    style: TextStyle(color: Colors.black,
+                    fontFamily: 'Lato',
+                    ),
+                  ),
                 ),
                 DataColumn(
                   label: DropdownButton<String>(

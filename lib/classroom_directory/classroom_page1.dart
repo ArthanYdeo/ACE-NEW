@@ -1,24 +1,25 @@
 import 'package:ace/classroom_directory/classwork.dart';
-import 'package:ace/classroom_directory/people.dart';
-import 'package:ace/classroom_directory/stream.dart';
+import 'package:ace/people_directory/people.dart';
+import 'package:ace/stream_directory/stream.dart';
 import 'package:ace/constant/colors.dart';
 import 'package:ace/pages/homescreen_page.dart';
 import 'package:flutter/material.dart';
 
-class ClassRoomPage3 extends StatefulWidget {
+class ClassRoomPage1 extends StatefulWidget {
   AssetImage bannerImg;
   String className;
+  static const routeName = "ClassRoomPage1";
 
-  ClassRoomPage3({required this.className, required this.bannerImg});
+  ClassRoomPage1({required this.className, required this.bannerImg});
 
   @override
-  State<ClassRoomPage3> createState() => _ClassRoomPage3State();
+  _ClassRoomPage1State createState() => _ClassRoomPage1State();
 }
 
-class _ClassRoomPage3State extends State<ClassRoomPage3> {
+class _ClassRoomPage1State extends State<ClassRoomPage1> {
   int pageIndex = 0;
   final pages = [
-     Stream(),
+    Stream(),
     const Classwork(),
     const People(),
   ];
@@ -28,21 +29,21 @@ class _ClassRoomPage3State extends State<ClassRoomPage3> {
     String className = widget.className;
     AssetImage bannerImg = widget.bannerImg;
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0.5,
-          leading: IconButton(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0.5,
+        leading: IconButton(
             onPressed: () {
               Navigator.of(context).pop(MaterialPageRoute(builder:
                   (BuildContext context) => HomeScreenPage(),
-              )
-              );
-            },
+                  )
+                );
+              },
             icon: Icon(Icons.arrow_back),
-            color: ColorPalette.accentBlack,
-          ),
+        color: ColorPalette.accentBlack,
         ),
-        body: pages[pageIndex],
+      ),
+      body: pages[pageIndex],
         bottomNavigationBar: Container(
           height: 60,
           decoration: const BoxDecoration(
