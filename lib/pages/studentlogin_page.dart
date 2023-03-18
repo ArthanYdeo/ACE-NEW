@@ -20,7 +20,6 @@ class StudentLoginPage extends StatefulWidget {
 class _LoginPageState extends State<StudentLoginPage> {
   final TextEditingController _idnum = TextEditingController();
   final TextEditingController _pass = TextEditingController();
-  final _loginbox = Hive.box("_loginbox");
   bool _hidePassword = true;
 
   @override
@@ -78,17 +77,6 @@ class _LoginPageState extends State<StudentLoginPage> {
                         child: TextFormField(
                           keyboardType: TextInputType.text,
                           controller: _idnum,
-                          validator: (value) {
-                            // Email RegEx Validation
-                            final bool emailValid = RegExp(
-                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                .hasMatch(value!);
-                            if (value.isNotEmpty && emailValid) {
-                              return null;
-                            } else {
-                              return "Invalid student number.";
-                            }
-                          },
                           decoration: const InputDecoration(
                             labelText: 'Student Number',
                             labelStyle: TextStyle(
@@ -231,8 +219,8 @@ class _LoginPageState extends State<StudentLoginPage> {
     } else {
     Navigator.of(context).pushAndRemoveUntil(
     MaterialPageRoute(
-    builder: (context) => const HomeScreenPage())),
-    (Route<dynamic> route) => true);
+    builder: (context) => const HomeScreenPage()),
+    (Route<dynamic> route) => false);
     }
     });
     },
@@ -258,25 +246,12 @@ class _LoginPageState extends State<StudentLoginPage> {
     ),
     ),
     const SizedBox(height: 10),
-    const Text(
-    "or",
-    style: TextStyle(
-    color: ColorPalette.secondary,
-    fontFamily: 'Lato',
-    fontSize: 18,
-    fontWeight: FontWeight.w300,
-    ),
-    ),
-    const SizedBox(height: 10),
-    SizedBox(
-    width: 150,
-    height: 50,
-    child: ElevatedButton(
+    ElevatedButton(
     onPressed: () {
     // Go to the signup
     Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const RegisterPage())),
+    MaterialPageRoute(builder: (context) => const RegisterPage()),
     );
     },
     style: ButtonStyle(
@@ -299,9 +274,12 @@ class _LoginPageState extends State<StudentLoginPage> {
     ),
     ),
     ),
-    ),
     ],
     ),
+                )
+      )
+    )
+          )
     ],
     ),
     );
@@ -323,11 +301,5 @@ class _LoginPageState extends State<StudentLoginPage> {
       }
       throw e.code;
     }
-  }
-
-  void _togglePasswordVisibility() {
-    setState(() {
-      _obscu = !_showPassword;
-    });
   }
 }
