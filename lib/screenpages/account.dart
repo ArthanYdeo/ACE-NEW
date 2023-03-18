@@ -1,6 +1,8 @@
 import 'package:ace/constant/colors.dart';
 import 'package:ace/pages/selection_page.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '../dialogs/dialog_unsuccessful.dart';
 
 
 class Account extends StatefulWidget {
@@ -259,25 +261,40 @@ Container(
   height: 50,
                child: ElevatedButton(
                  style: ElevatedButton.styleFrom(
-                     primary: Colors.white
+                     primary: ColorPalette.hintColor,
                  ),
-                onPressed: (){
-                  Navigator.of(context).pop(MaterialPageRoute(builder: (BuildContext context)=>const SelectionPage()));
-                },
-                child: const Text(
-                  'Log Out',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'Lato',
-                  ),
-                ),
+                 onPressed: () {
+                   DialogUnsuccessful(
+                     headertext: "Log out?",
+                     subtext:
+                     "Are you sure you want to log out?",
+                     textButton: "Yes",
+                     callback: () async {
+                       await FirebaseAuth.instance.signOut();
+                       // ignore: use_build_context_synchronously
+                       Navigator.of(context,
+                           rootNavigator: true)
+                           .pop();
+                       // ignore: use_build_context_synchronously
+                       Navigator.of(
+                           context)
+                           .pushAndRemoveUntil(
+                           MaterialPageRoute(
+                               builder: (context) =>
+                               const SelectionPage()),
+                               (Route<dynamic> route) =>
+                           false);
+                     },
+                   ).buildUnsuccessfulScreen(context);
+                 }, child: Text('SIGN OUT'),
+               ),
+
               ),
-),
-              const SizedBox(height: 25.0,),
-            ],
-          ),
-        ),
-      ),
+          ]
+
+    )
+      )
+               )
     );
   }
 }
