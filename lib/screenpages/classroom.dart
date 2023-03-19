@@ -3,12 +3,7 @@ import 'package:ace/classroom_directory/classroom_page2.dart';
 import 'package:ace/classroom_directory/classroom_page3.dart';
 import 'package:flutter/material.dart';
 import 'package:ace/models/classroom.dart';
-
 import '../constant/colors.dart';
-
-
-
-
 
 class Classroom extends StatefulWidget {
   @override
@@ -22,7 +17,6 @@ class _ClassroomState extends State<Classroom> {
       ClassRoomPage1.routeName,
       ClassRoomPage2.routeName,
       ClassRoomPage3.routeName,
-
     ];
     return Scaffold(
       backgroundColor: ColorPalette.accentBlack,
@@ -30,7 +24,10 @@ class _ClassroomState extends State<Classroom> {
             itemCount: classRoomList.length,
             itemBuilder: (context, index) {
               return ListTile(
-                onTap: () => Navigator.of(context).pushNamed(routes[index]),
+                onTap: () => Navigator.pushNamed(context, '/second',
+                    arguments: ClassRoomPage1(
+                      className: classRoomList[0].className
+                    )),
                 title: Stack(
                   children: [
                     Container(

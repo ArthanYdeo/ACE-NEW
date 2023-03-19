@@ -1,6 +1,9 @@
-import 'package:ace/pages/splashscreen_page.dart';
+import 'package:ace/pages/selection_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
+import 'classroom_directory/classroom_page1.dart';
+import 'models/classroom.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,9 +16,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashscreenPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SelectionPage(),
+        '/second': (context) => ClassRoomPage1(className: classRoomList[0].className),
+      },
     );
   }
 }

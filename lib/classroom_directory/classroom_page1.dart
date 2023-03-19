@@ -2,15 +2,13 @@ import 'package:ace/classroom_directory/classwork.dart';
 import 'package:ace/people_directory/people.dart';
 import 'package:ace/stream_directory/stream.dart';
 import 'package:ace/constant/colors.dart';
-import 'package:ace/pages/homescreen_page.dart';
 import 'package:flutter/material.dart';
 
 class ClassRoomPage1 extends StatefulWidget {
-  AssetImage bannerImg;
   String className;
   static const routeName = "ClassRoomPage1";
 
-  ClassRoomPage1({required this.className, required this.bannerImg});
+  ClassRoomPage1({required this.className});
 
   @override
   _ClassRoomPage1State createState() => _ClassRoomPage1State();
@@ -27,17 +25,13 @@ class _ClassRoomPage1State extends State<ClassRoomPage1> {
   @override
   Widget build(BuildContext context) {
     String className = widget.className;
-    AssetImage bannerImg = widget.bannerImg;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.5,
         leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pop(MaterialPageRoute(builder:
-                  (BuildContext context) => HomeScreenPage(),
-                  )
-                );
+              Navigator.pop(context);
               },
             icon: Icon(Icons.arrow_back),
         color: ColorPalette.accentBlack,
