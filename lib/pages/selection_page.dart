@@ -1,5 +1,6 @@
 import 'package:ace/components/admin_button.dart';
 import 'package:ace/components/register_button.dart';
+import 'package:ace/components/selection_header.dart';
 import 'package:ace/components/student_button.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +17,8 @@ class SelectionPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: const [
-              SizedBox(height: 250),
-
+              SizedBox(height: 100),
+              SelectionHeader(),
               Text(
                 'Academia Classroom Explorer',
                 style: TextStyle(
