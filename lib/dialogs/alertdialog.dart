@@ -17,7 +17,7 @@ class AlertDialogs {
           titleTextStyle: const TextStyle(
               fontWeight: FontWeight.w900,
               fontSize: 24,
-              color: Color(0xFF579981)),
+              color: Color(0xff262626)),
           contentTextStyle: const TextStyle(
               fontWeight: FontWeight.w400, fontSize: 14, color: Colors.black),
           buttonPadding: const EdgeInsets.all(10),
@@ -48,7 +48,7 @@ class AlertDialogs {
               style: ElevatedButton.styleFrom(
                 elevation: 0,
                 minimumSize: const Size(130.0, 45.0),
-                backgroundColor: const Color(0xFF579981),
+                backgroundColor: const Color(0xff262626),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14),
                 ),

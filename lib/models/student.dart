@@ -6,36 +6,28 @@ String studentToJson(Student data) => json.encode(data.toJson());
 
 class Student {
   Student({
-    required this.firstName,
-    required this.middleName,
-    required this.lastName,
+    required this.fullName,
     required this.idNum,
-    required this.schoolIssuedEmail,
+    required this.email,
     required this.password,
   });
 
-  String firstName;
-  String middleName;
-  String lastName;
+  String fullName;
   String idNum;
-  String schoolIssuedEmail;
+  String email;
   String password;
 
   factory Student.fromJson(Map<String, dynamic> json) => Student(
-    firstName: json["firstName"],
-    middleName: json["middleName"],
-    lastName: json["lastName"],
+    fullName: json["firstName"],
     idNum: json["idNum"],
-    schoolIssuedEmail: json["schoolIssuedEmail"],
+    email: json["email"],
     password: json["password"],
   );
 
   Map<String, dynamic> toJson() => {
-    "firstName": firstName,
-    "middleName": middleName,
-    "lastName": lastName,
+    "firstName": fullName,
     "idNum": idNum,
-    "schoolIssuedEmail": schoolIssuedEmail,
+    "email": email,
     "password": password,
   };
 }

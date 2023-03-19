@@ -29,14 +29,14 @@ class DialogLoading {
                       height: 50,
                       child: Center(
                           child: CircularProgressIndicator(
-                            color: ColorPalette.primary,
+                            color: Colors.black,
                           )),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       subtext,
                       style: const TextStyle(
-                        color: ColorPalette.primary,
+                        color: Colors.black,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w400,
                         fontSize: 14,

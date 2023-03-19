@@ -13,21 +13,16 @@ class Classroom extends StatefulWidget {
 class _ClassroomState extends State<Classroom> {
   @override
   Widget build(BuildContext context) {
-    List<String> routes = [
-      ClassRoomPage1.routeName,
-      ClassRoomPage2.routeName,
-      ClassRoomPage3.routeName,
-    ];
     return Scaffold(
       backgroundColor: ColorPalette.accentBlack,
         body: ListView.builder(
             itemCount: classRoomList.length,
             itemBuilder: (context, index) {
               return ListTile(
-                onTap: () => Navigator.pushNamed(context, '/second',
-                    arguments: ClassRoomPage1(
-                      className: classRoomList[0].className
-                    )),
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => ClassRoomPage1(
+                      className: classRoomList[index].className,
+                    ))),
                 title: Stack(
                   children: [
                     Container(

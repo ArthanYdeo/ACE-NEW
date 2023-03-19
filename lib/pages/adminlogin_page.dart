@@ -153,9 +153,6 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
                               width: 355,
                               height: 50,
                               child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.black
-                                ),
                                 onPressed: () {
                                   Navigator.of(context).pushReplacement(
                                     MaterialPageRoute(
@@ -164,13 +161,24 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
                                     )
                                   );
                                 },
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all<Color>(
+                                    ColorPalette.accentBlack,
+                                  ),
+                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
+                                  ),
+                                ),
                                 child: const Text(
-                                  'LOGIN',
+                                  "LOGIN",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      letterSpacing: 0.5,
-                                      fontFamily: 'Lato',
-                                      fontSize: 14),
+                                    color: ColorPalette.secondary,
+                                    fontFamily: 'Inter',
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w900,
+                                  ),
                                 ),
                               ),
                             ),
