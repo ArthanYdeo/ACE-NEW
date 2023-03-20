@@ -31,6 +31,7 @@ class _GradesState extends State<Grades> {
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child:  Container(
+            alignment: Alignment.center,
             height: 410,
             width: 360,
             margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -41,12 +42,27 @@ class _GradesState extends State<Grades> {
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.3),
+                  color: Colors.black.withOpacity(1),
                   blurRadius: 5,
                   spreadRadius: 1,
                 ),
               ],
             ),
+
+            child: Container(
+              alignment: Alignment.center,
+              width: 10,
+              height: 320,
+              decoration: BoxDecoration(
+                border: Border(
+                  left: BorderSide(
+                    color: Colors.grey,
+                    width: 1.0,
+                  )
+                ),
+              ),
+
+
             child: DataTable(
               decoration: BoxDecoration(
                 border: Border.all(
@@ -91,6 +107,7 @@ class _GradesState extends State<Grades> {
                           horizontal: 16.0,
                           vertical: 8.0,
                         ),
+
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: Colors.white,
@@ -98,8 +115,10 @@ class _GradesState extends State<Grades> {
                           ),
                           borderRadius: BorderRadius.circular(5.0),
                         ),
-                        child: Text(subject['grade']),
+                        child:
+                        Text(subject['grade']),
                       ),
+
                     ),
                   ]);
                 },
@@ -108,6 +127,7 @@ class _GradesState extends State<Grades> {
           ),
         ),
       ),
+     )
     );
   }
 }
