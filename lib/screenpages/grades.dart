@@ -48,21 +48,6 @@ class _GradesState extends State<Grades> {
                 ),
               ],
             ),
-
-            child: Container(
-              alignment: Alignment.center,
-              width: 10,
-              height: 320,
-              decoration: BoxDecoration(
-                border: Border(
-                  left: BorderSide(
-                    color: Colors.grey,
-                    width: 1.0,
-                  )
-                ),
-              ),
-
-
             child: DataTable(
               decoration: BoxDecoration(
                 border: Border.all(
@@ -127,7 +112,6 @@ class _GradesState extends State<Grades> {
           ),
         ),
       ),
-     )
-    );
+     );
   }
 }

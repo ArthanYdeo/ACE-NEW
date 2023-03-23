@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constant/colors.dart';
+
 enum DialogsAction { yes, cancel }
 
 class AlertDialogs {
@@ -22,7 +24,9 @@ class AlertDialogs {
               fontWeight: FontWeight.w400, fontSize: 14, color: Colors.black),
           buttonPadding: const EdgeInsets.all(10),
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)
+          ),
+
           title: Text(title),
           content: Text(body),
           actions: <Widget>[
@@ -37,9 +41,10 @@ class AlertDialogs {
               ),
               onPressed: () => Navigator.of(context).pop(DialogsAction.cancel),
               child: const Text(
-                'cancel',
+                'CANCEL',
                 style: TextStyle(
                     color: Colors.black,
+                    fontFamily: 'Lato',
                     fontSize: 14,
                     fontWeight: FontWeight.w600),
               ),
@@ -55,9 +60,10 @@ class AlertDialogs {
               ),
               onPressed: () => Navigator.of(context).pop(DialogsAction.yes),
               child: const Text(
-                'confirm',
+                'CONFIRM',
                 style: TextStyle(
                     color: Colors.white,
+                    fontFamily: 'Lato',
                     fontSize: 14,
                     fontWeight: FontWeight.w600),
                 textAlign: TextAlign.center,

@@ -241,7 +241,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 ),
                               ),
                               child:DropdownButtonFormField(
-                                dropdownColor: ColorPalette.secondary,
+                                dropdownColor: ColorPalette.hintColor,
                                 hint: const Text(
                                   "GENDER",
                                   style: TextStyle(
@@ -285,7 +285,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 ),
                               ),
                               child:DropdownButtonFormField(
-                                dropdownColor: ColorPalette.secondary,
+                                dropdownColor: ColorPalette.hintColor,
                                 hint: const Text(
                                   "AGE",
                                   style: TextStyle(
@@ -330,7 +330,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 ),
                               ),
                               child:DropdownButtonFormField(
-                                dropdownColor: ColorPalette.secondary,
+                                dropdownColor: ColorPalette.hintColor,
                                 hint: const Text(
                                   "DEPARTMENT",
                                   style: TextStyle(
@@ -373,7 +373,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                       DatabaseReference dbReference = FirebaseDatabase
                                           .instance
                                           .ref()
-                                          .child("Students/${_fname.text}/");
+                                          .child("Students/${_idnum.text}/");
                                       await dbReference
                                           .child("fullname")
                                           .set(_fname.text);
@@ -441,7 +441,7 @@ class _RegisterPageState extends State<RegisterPage> {
         fontFamily: 'Lato',
         fontWeight: FontWeight.w700,
         fontSize: 18,
-        color: ColorPalette.accentBlack,
+        color: ColorPalette.secondary,
       ),
     ),
   );

@@ -43,6 +43,5 @@ class ACEStrings {
     'CCJE - College of Criminal Justice Education',
     'CMA - College of Management and Accountancy',
     'CITE - College of Information Technology Education',
-    'Null',
   ];
 }

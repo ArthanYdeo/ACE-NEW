@@ -1,11 +1,11 @@
 import 'dart:convert';
-import 'package:ace/models/student.dart';
 import 'package:ace/pages/registration_page.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import '../constant/colors.dart';
 import '../dialogs/alertdialog.dart';
+import '../models/user.dart';
 import 'homescreen_page.dart';
 
 class StudentLoginPage extends StatefulWidget {
@@ -21,9 +21,9 @@ class _LoginPageState extends State<StudentLoginPage> {
   final TextEditingController _passTEC = TextEditingController();
   final _loginbox = Hive.box("_loginbox");
   DatabaseReference dbReference =
-  FirebaseDatabase.instance.ref().child("Users/");
-
+  FirebaseDatabase.instance.ref().child("Students/");
   bool _hidePassword = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +75,7 @@ class _LoginPageState extends State<StudentLoginPage> {
                                   labelStyle: TextStyle(
                                     color: ColorPalette.accentBlack,
                                   ),
-                                  hintText: 'Enter your Student Number',
+                                  hintText: 'Enter your student number',
                                   hintStyle:
                                   TextStyle(fontSize: 12, color: ColorPalette.accentBlack,),
                                   enabledBorder: OutlineInputBorder(
@@ -160,17 +160,19 @@ class _LoginPageState extends State<StudentLoginPage> {
                                       if (data.key == _userTEC.text) {
                                         Map<String, dynamic> myObj =
                                         jsonDecode(jsonEncode(data.value));
-                                        Student myUserobj = Student.fromJson(myObj);
+                                        User myUserobj = User.fromJson(myObj);
                                         if (myUserobj.password == _passTEC.text) {
+
                                           _loginbox.put("isLoggedIn", true);
-                                          _loginbox.put("Student", _userTEC.text);
+                                          _loginbox.put("User", _userTEC.text);
                                           Navigator.of(context).pushReplacement(
                                             MaterialPageRoute(
                                               builder: (BuildContext context) =>
                                               const HomeScreenPage(),
                                             ),
                                           );
-                                        } else {
+                                        }
+                                        else {
                                           showDialog(
                                             context: context,
                                             builder: (context) => AlertDialog(
@@ -181,7 +183,7 @@ class _LoginPageState extends State<StudentLoginPage> {
                                                     minimumSize:
                                                     const Size(125.0, 45.0),
                                                     backgroundColor:
-                                                    const Color(0xFF579981),
+                                                    const Color(0xFF000000),
                                                     shape: RoundedRectangleBorder(
                                                       borderRadius:
                                                       BorderRadius.circular(14),
@@ -191,8 +193,9 @@ class _LoginPageState extends State<StudentLoginPage> {
                                                       Navigator.of(context)
                                                           .pop(DialogsAction.yes),
                                                   child: const Text(
-                                                    'confirm',
+                                                    'Confirm',
                                                     style: TextStyle(
+                                                      fontFamily: 'Lato',
                                                         color: Colors.white,
                                                         fontSize: 14,
                                                         fontWeight: FontWeight.w600),
@@ -204,7 +207,7 @@ class _LoginPageState extends State<StudentLoginPage> {
                                                 'Login Warning',
                                                 style: TextStyle(
                                                     fontFamily: 'Lato',
-                                                    color: Color(0xFF579981),
+                                                    color: Color(0xFF000000),
                                                     fontWeight: FontWeight.bold),
                                               ),
                                               contentPadding:
@@ -219,9 +222,6 @@ class _LoginPageState extends State<StudentLoginPage> {
                                             ),
                                           );
                                         }
-                                      } else {
-                                        debugPrint('Does not exist');
-                                        continue;
                                       }
                                     }
                                   });
