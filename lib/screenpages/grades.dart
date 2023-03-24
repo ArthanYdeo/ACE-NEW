@@ -48,13 +48,16 @@ class _GradesState extends State<Grades> {
                 ),
               ],
             ),
+
+
+
+
             child: DataTable(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.white,
+                border: TableBorder.all(
+                  color: Colors.grey,
                   width: 1.0,
                 ),
-              ),
+
               //dataRowHeight: 60.0, // set the height of the rows
               columns: [
                 DataColumn(
@@ -112,6 +115,7 @@ class _GradesState extends State<Grades> {
           ),
         ),
       ),
-     );
+
+    );
   }
 }
