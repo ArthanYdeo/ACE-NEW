@@ -373,7 +373,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                       DatabaseReference dbReference = FirebaseDatabase
                                           .instance
                                           .ref()
-                                          .child("Students/${_idnum.text}/");
+                                          .child("Students/${_fname.text}/");
                                       await dbReference
                                           .child("fullname")
                                           .set(_fname.text);

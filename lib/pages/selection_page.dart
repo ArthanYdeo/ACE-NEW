@@ -28,8 +28,6 @@ class SelectionPage extends StatelessWidget {
                   fontSize: 25),
               ),
               SizedBox(height: 50),
-              AdminButton(onTap: null),
-              SizedBox(height: 10),
               StudentButton(onTap: null),
               SizedBox(height: 10),
               RegisterButton(onTap: null),
