@@ -25,45 +25,44 @@ class _AccountState extends State<Account> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-        onWillPop: () => _onBackButtonDoubleClicked(context),
-        child: Scaffold(
-          backgroundColor: ColorPalette.accentBlack,
-          extendBodyBehindAppBar: true,
-          appBar: AppBar(
-              toolbarHeight: (100),
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-            automaticallyImplyLeading: false,
-              actions: [
-          Padding(
-          padding: const EdgeInsets.only(top: 30, right: 20),
-          child: IconButton(
-            iconSize: 40,
-            onPressed: () async {
-              final action = await AlertDialogs.yesCancelDialog(
-                  context,
-                  'Logout this account?',
-                  'you can always come back any time.');
-              if (action == DialogsAction.yes) {
-                setState(() => tappedYes = true);
-                _loginbox.put("isLoggedIn", false);
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => const SelectionPage (),
-                  ),
-                );
-              } else {
-                setState(() => tappedYes = false);
-              }
-            },
-            icon: const Icon(Icons.exit_to_app_rounded),
-            color: ColorPalette.secondary,
-          ),
+    return Scaffold(
+        extendBodyBehindAppBar: true,
+        backgroundColor: ColorPalette.accentBlack,
+        appBar: AppBar(
+          toolbarHeight: (100),
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          automaticallyImplyLeading: false,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(top: 30, right: 20),
+              child: IconButton(
+                iconSize: 40,
+                onPressed: () async {
+                  final action = await AlertDialogs.yesCancelDialog(
+                      context,
+                      'Logout this account?',
+                      'you can always come back any time.');
+                  if (action == DialogsAction.yes) {
+                    setState(() => tappedYes = true);
+                    _loginbox.put("isLoggedIn", false);
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => const SelectionPage (),
+                      ),
+                    );
+                  } else {
+                    setState(() => tappedYes = false);
+                  }
+                },
+                icon: const Icon(Icons.exit_to_app_rounded),
+                color: ColorPalette.secondary,
+              ),
+            ),
+          ],
         ),
-              ],
-          ),
-          body: Container(
+        body: SingleChildScrollView(
+          child: Container(
             padding: const EdgeInsets.only(
               top: 140,
               left: 100,
@@ -144,26 +143,59 @@ class _AccountState extends State<Account> {
                         ),
                       ),
                       const SizedBox(
-                        height: 5,
+                        height: 10,
                       ),
-                      const Text(
-                      'PERSONAL INFO',
+                      Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                      decoration: const BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                      ),
+                      ),
+                      child: const Text(
+                      'PERSONAL INFORMATION',
+                        textAlign: TextAlign.center,
                       style: TextStyle(
                       color: ColorPalette.secondary,
                       fontFamily: 'Lato',
                       fontWeight: FontWeight.w700,
-                      fontSize: 15),
+                      fontSize: 14),
                       ),
-                      const SizedBox(
-                        height: 5,
                       ),
+                      Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 2),
+                      decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(15),
+                      bottomRight: Radius.circular(15),
+                      ),
+                      ),
+                      child: Padding(
+                      padding: const EdgeInsets.only(left:5.0),
+                      child: Column(
+                      children: [
+                      const SizedBox(height: 15),
+                      const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                      '',
+                      style: TextStyle(
+                      fontSize: 15.0,
+                      color: Colors.black54,
+                      ),
+                      ),
+                      ),
+
                       Text(
                         snapshot.data!.first.fullname.toString(),
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                             fontSize: 28,
                             fontWeight: FontWeight.w900,
-                            color: ColorPalette.secondary,
+                            color: Colors.black,
                             fontFamily: 'Lato'
                         ),
                       ),
@@ -175,7 +207,7 @@ class _AccountState extends State<Account> {
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                            color: ColorPalette.secondary,
+                            color: Colors.black,
                             fontFamily: 'Lato'
                         ),
                       ),
@@ -184,7 +216,7 @@ class _AccountState extends State<Account> {
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                            color: ColorPalette.secondary,
+                            color: Colors.black,
                             fontFamily: 'Lato'
                         ),
                       ),
@@ -220,7 +252,7 @@ class _AccountState extends State<Account> {
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                            color: ColorPalette.secondary,
+                            color: Colors.black,
                             fontFamily: 'Lato'
                         ),
                       ),
@@ -255,7 +287,7 @@ class _AccountState extends State<Account> {
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                            color: ColorPalette.secondary,
+                            color: Colors.black,
                             fontFamily: 'Lato'
                         ),
                       ),
@@ -290,7 +322,7 @@ class _AccountState extends State<Account> {
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
-                            color: ColorPalette.secondary,
+                            color: Colors.black,
                             fontFamily: 'Lato'
                         ),
                       ),
@@ -326,9 +358,8 @@ class _AccountState extends State<Account> {
                       Text("Department",
                         style: TextStyle(
                             fontSize: 16,
-
                             fontWeight: FontWeight.w400,
-                            color: ColorPalette.secondary,
+                            color: Colors.black,
                             fontFamily: 'Lato'
                         ),
                       ),
@@ -361,7 +392,10 @@ class _AccountState extends State<Account> {
                         height: 5,
                       ),
                     ],
-                  );
+                  )
+                  )
+                  )
+                  ]);
                 }),
           ),
         )
