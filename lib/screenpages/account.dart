@@ -65,8 +65,8 @@ class _AccountState extends State<Account> {
           child: Container(
             padding: const EdgeInsets.only(
               top: 140,
-              left: 100,
-              right: 100,
+              left: 50,
+              right: 50,
             ),
             child: FutureBuilder(
                 future: getUser(),
@@ -225,7 +225,7 @@ class _AccountState extends State<Account> {
                       ),
                       Container(
                         height: 35,
-                        width: 125,
+                        width: 155,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
@@ -261,7 +261,7 @@ class _AccountState extends State<Account> {
                       ),
                       Container(
                         height: 35,
-                        width: 125,
+                        width: 155,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
@@ -296,7 +296,7 @@ class _AccountState extends State<Account> {
                       ),
                       Container(
                         height: 35,
-                        width: 125,
+                        width: 155,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
@@ -330,8 +330,8 @@ class _AccountState extends State<Account> {
                         height: 5,
                       ),
                       Container(
-                        height: 55,
-                        width: 200,
+                        height: 35,
+                        width: 190,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
@@ -368,7 +368,7 @@ class _AccountState extends State<Account> {
                       ),
                       Container(
                         height: 35,
-                        width: 255,
+                        width: 230,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
