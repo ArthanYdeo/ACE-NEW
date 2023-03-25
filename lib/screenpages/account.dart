@@ -1,15 +1,13 @@
 import 'dart:convert';
-import 'package:ace/dialogs/alertdialog.dart';
-import 'package:ace/dialogs/dialog_unsuccessful.dart';
-import 'package:ace/pages/homescreen_page.dart';
-import 'package:ace/pages/studentlogin_page.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import '../constant/colors.dart';
+import '../dialogs/alertdialog.dart';
 import '../models/user.dart';
 import '../pages/selection_page.dart';
+
 
 class Account extends StatefulWidget {
   const Account({super.key});
@@ -27,43 +25,45 @@ class _AccountState extends State<Account> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+        onWillPop: () => _onBackButtonDoubleClicked(context),
+        child: Scaffold(
           backgroundColor: ColorPalette.accentBlack,
           extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          toolbarHeight: (100),
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(top: 30, right: 20),
-              child: IconButton(
-                iconSize: 40,
-                onPressed: () async {
-                  final action = await AlertDialogs.yesCancelDialog(
-                      context,
-                      'Logout this account?',
-                      'you can always come back any time.');
-                  if (action == DialogsAction.yes) {
-                    setState(() => tappedYes = true);
-                    _loginbox.put("isLoggedIn", false);
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => const SelectionPage (),
-                      ),
-                    );
-                  } else {
-                    setState(() => tappedYes = false);
-                  }
-                },
-                icon: const Icon(Icons.exit_to_app_rounded),
-                color: ColorPalette.secondary,
-              ),
-            ),
-          ],
+          appBar: AppBar(
+              toolbarHeight: (100),
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+            automaticallyImplyLeading: false,
+              actions: [
+          Padding(
+          padding: const EdgeInsets.only(top: 30, right: 20),
+          child: IconButton(
+            iconSize: 40,
+            onPressed: () async {
+              final action = await AlertDialogs.yesCancelDialog(
+                  context,
+                  'Logout this account?',
+                  'you can always come back any time.');
+              if (action == DialogsAction.yes) {
+                setState(() => tappedYes = true);
+                _loginbox.put("isLoggedIn", false);
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => const SelectionPage (),
+                  ),
+                );
+              } else {
+                setState(() => tappedYes = false);
+              }
+            },
+            icon: const Icon(Icons.exit_to_app_rounded),
+            color: ColorPalette.secondary,
+          ),
         ),
-        body: SingleChildScrollView(
-          child: Container(
+              ],
+          ),
+          body: Container(
             padding: const EdgeInsets.only(
               top: 140,
               left: 100,
@@ -87,10 +87,10 @@ class _AccountState extends State<Account> {
                           ),
                           SizedBox(height: 20),
                           Text("Loading...",
-                          style: TextStyle(
-                              color: ColorPalette.secondary,
-                              fontFamily: 'Lato'
-                          ),
+                            style: TextStyle(
+                                color: ColorPalette.secondary,
+                                fontFamily: 'Lato'
+                            ),
                           ),
                         ],
                       ),
@@ -99,41 +99,41 @@ class _AccountState extends State<Account> {
                   if (snapshot.hasError) {
                     return Center(
                         child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
-                        Icon(
-                          Icons.warning_amber_rounded,
-                        ),
-                        Text(
-                          "Something went wrong",
-                          style: TextStyle(
-                              fontFamily: 'Lato',
-                              color: ColorPalette.secondary,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          "Please Try again.",
-                          style: TextStyle(
-                            fontFamily: 'Lato',
-                            color: ColorPalette.secondary,
-                          ),
-                        )
-                      ],
-                    ));
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.warning_amber_rounded,
+                            ),
+                            Text(
+                              "Something went wrong",
+                              style: TextStyle(
+                                  fontFamily: 'Lato',
+                                  color: ColorPalette.secondary,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              "Please Try again.",
+                              style: TextStyle(
+                                fontFamily: 'Lato',
+                                color: ColorPalette.secondary,
+                              ),
+                            )
+                          ],
+                        ));
                   }
                   return Column(
                     children: [
                       SizedBox(
-                        width: 200,
-                        height: 200,
+                        width: 150,
+                        height: 150,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(100),
-                        child: Container(
+                          child: Container(
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius:  BorderRadius.circular(55)
+                                borderRadius: BorderRadius.circular(55)
                             ),
                             child: const Icon(
                               Icons.person_outline_rounded,
@@ -146,12 +146,24 @@ class _AccountState extends State<Account> {
                       const SizedBox(
                         height: 5,
                       ),
+                      const Text(
+                      'PERSONAL INFO',
+                      style: TextStyle(
+                      color: ColorPalette.secondary,
+                      fontFamily: 'Lato',
+                      fontWeight: FontWeight.w700,
+                      fontSize: 15),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
                       Text(
                         snapshot.data!.first.fullname.toString(),
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.w900,
-                          color: ColorPalette.secondary,
+                            fontSize: 28,
+                            fontWeight: FontWeight.w900,
+                            color: ColorPalette.secondary,
                             fontFamily: 'Lato'
                         ),
                       ),
@@ -161,9 +173,9 @@ class _AccountState extends State<Account> {
                       const Text(
                         'Student',
                         style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: ColorPalette.secondary,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: ColorPalette.secondary,
                             fontFamily: 'Lato'
                         ),
                       ),
@@ -232,7 +244,7 @@ class _AccountState extends State<Account> {
                           child: Text(
                             snapshot.data!.first.gender.toString(),
                             style: const TextStyle(
-                                fontSize: 12,fontFamily: 'Lato'),
+                                fontSize: 12, fontFamily: 'Lato'),
                           ),
                         ),
                       ),
@@ -274,46 +286,47 @@ class _AccountState extends State<Account> {
                       const SizedBox(
                         height: 20,
                       ),
-                  Text("E-mail Address",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: ColorPalette.secondary,
-                      fontFamily: 'Lato'
-                  ),
-                  ),
+                      Text("E-mail Address",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: ColorPalette.secondary,
+                            fontFamily: 'Lato'
+                        ),
+                      ),
                       const SizedBox(
                         height: 5,
                       ),
-                  Container(
-                  height: 55,
-                  width: 200,
-                  decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
-                  boxShadow: [
-                  BoxShadow(
-                  color: Colors.black.withOpacity(0.200),
-                  blurRadius: 2,
-                  ),
-                  ],
-                  ),
-                  child: Center(
-                  child: Text(
-                  snapshot.data!.first.email.toString(),
-                  style: const TextStyle(
-                  fontSize: 12,
-                    fontFamily: 'Lato'
-                  ),
-                  ),
-                  ),
-                  ),
+                      Container(
+                        height: 55,
+                        width: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.200),
+                              blurRadius: 2,
+                            ),
+                          ],
+                        ),
+                        child: Center(
+                          child: Text(
+                            snapshot.data!.first.email.toString(),
+                            style: const TextStyle(
+                                fontSize: 12,
+                                fontFamily: 'Lato'
+                            ),
+                          ),
+                        ),
+                      ),
                       const SizedBox(
                         height: 10,
                       ),
                       Text("Department",
                         style: TextStyle(
                             fontSize: 16,
+
                             fontWeight: FontWeight.w400,
                             color: ColorPalette.secondary,
                             fontFamily: 'Lato'
@@ -338,10 +351,14 @@ class _AccountState extends State<Account> {
                         child: Center(
                           child: Text(
                             snapshot.data!.first.dept.toString(),
+                            textAlign: TextAlign.center,
                             style: const TextStyle(
                                 fontSize: 12, fontFamily: 'Lato'),
                           ),
                         ),
+                      ),
+                      const SizedBox(
+                        height: 5,
                       ),
                     ],
                   );
@@ -354,7 +371,7 @@ class _AccountState extends State<Account> {
   Future<List<User>> getUser() async {
     List<User> myUser = [];
     DatabaseReference databaseReference =
-        FirebaseDatabase.instance.ref().child("Students/$fullname");
+    FirebaseDatabase.instance.ref().child("Students/$fullname");
     try {
       await databaseReference.get().then((snapshot) {
         Map<String, dynamic> myObj = jsonDecode(jsonEncode(snapshot.value));
@@ -366,4 +383,31 @@ class _AccountState extends State<Account> {
       rethrow;
     }
   }
+  void toast(BuildContext context, String text) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(
+        text,
+        textAlign: TextAlign.center,
+      ),
+      behavior: SnackBarBehavior.floating,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
+      width: 200,
+      backgroundColor: Colors.grey,
+      duration: const Duration(milliseconds: 1000),
+    ));
+  }
+  Future<bool> _onBackButtonDoubleClicked(BuildContext context) async {
+    final difference = DateTime.now().difference(backPressedTime);
+    backPressedTime = DateTime.now();
+
+    if (difference >= const Duration(seconds: 1)) {
+      toast(context, "Press again to exit");
+      return false;
+    } else {
+      SystemNavigator.pop(animated: true);
+      return true;
+    }
+  }
 }
+
+
