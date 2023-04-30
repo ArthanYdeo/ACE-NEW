@@ -1,16 +1,3 @@
-# ace
+# ACE : Academia Classroom Explorer
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ACE (Academia Classroom Explorer) is a mobile application developed by a group of five talented coders from PHINMA - University of Pangasinan. The application is built using the Flutter framework and is designed to offer students a convenient and comprehensive platform for accessing academic information.
