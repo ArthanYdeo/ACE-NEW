@@ -1,5 +1,5 @@
-import 'package:ace/constant/colors.dart';
-import 'package:ace/pages/homescreen_page.dart';
+import '../constant/colors.dart';
+import '../pages/homescreen_page.dart';
 import 'package:flutter/material.dart';
 
 class AdminLoginButton extends StatelessWidget {

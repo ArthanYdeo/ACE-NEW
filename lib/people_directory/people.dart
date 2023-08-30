@@ -1,4 +1,4 @@
-import 'package:ace/constant/colors.dart';
+import 'package:ACE/constant/colors.dart';
 import 'package:flutter/material.dart';
 
 class People extends StatefulWidget {
@@ -26,8 +26,7 @@ class _PeopleState extends State<People> {
                       fontSize: 30,
                       color: Colors.orange,
                       letterSpacing: 1,
-                    fontFamily: 'Lato'
-                  ), //need to change color per
+                      fontFamily: 'Lato'), //need to change color per
                 ),
               ),
               Container(
@@ -48,12 +47,14 @@ class _PeopleState extends State<People> {
                       color: Colors.blue,
                     ),
                   ),
-                  const SizedBox(width: 10,),
-                  const Text('Hugh Janus',
-                  style: TextStyle(
-                    color: ColorPalette.secondary,
-                    fontFamily: 'Lato'
-                  ),)
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    'Hugh Janus',
+                    style: TextStyle(
+                        color: ColorPalette.secondary, fontFamily: 'Lato'),
+                  )
                 ],
               ),
               const SizedBox(height: 25),
@@ -65,8 +66,7 @@ class _PeopleState extends State<People> {
                       fontSize: 30,
                       color: Colors.orange,
                       letterSpacing: 1,
-                      fontFamily: 'Lato'
-                  ), //need to change color per
+                      fontFamily: 'Lato'), //need to change color per
                 ),
               ),
               Container(
@@ -87,12 +87,12 @@ class _PeopleState extends State<People> {
                       color: Colors.blue,
                     ),
                   ),
-                  const SizedBox(width: 10,),
+                  const SizedBox(
+                    width: 10,
+                  ),
                   const Text('John Doe',
-                    style: TextStyle(
-                        color: ColorPalette.secondary,
-                        fontFamily: 'Lato')
-                  )
+                      style: TextStyle(
+                          color: ColorPalette.secondary, fontFamily: 'Lato'))
                 ],
               ),
             ],

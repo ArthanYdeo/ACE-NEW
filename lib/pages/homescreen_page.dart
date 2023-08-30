@@ -1,6 +1,6 @@
-import 'package:ace/constant/colors.dart';
-import 'package:ace/screenpages/account.dart';
-import 'package:ace/screenpages/grades.dart';
+import 'package:ACE/constant/colors.dart';
+import 'package:ACE/screenpages/account.dart';
+import 'package:ACE/screenpages/grades.dart';
 import 'package:flutter/material.dart';
 import '../screenpages/classroom.dart';
 

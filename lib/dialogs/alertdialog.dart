@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-
 import '../constant/colors.dart';
 
 enum DialogsAction { yes, cancel }
 
 class AlertDialogs {
   static Future<DialogsAction> yesCancelDialog(
-      BuildContext context,
-      String title,
-      String body,
-      ) async {
+    BuildContext context,
+    String title,
+    String body,
+  ) async {
     final action = await showDialog(
       context: context,
       barrierDismissible: false,
@@ -24,9 +23,7 @@ class AlertDialogs {
               fontWeight: FontWeight.w400, fontSize: 14, color: Colors.black),
           buttonPadding: const EdgeInsets.all(10),
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)
-          ),
-
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
           title: Text(title),
           content: Text(body),
           actions: <Widget>[

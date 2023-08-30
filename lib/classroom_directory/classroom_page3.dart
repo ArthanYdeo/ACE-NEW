@@ -1,6 +1,6 @@
-import 'package:ace/classroom_directory/classwork.dart';
-import 'package:ace/constant/colors.dart';
-import 'package:ace/pages/homescreen_page.dart';
+import '../classroom_directory/classwork.dart';
+import '../constant/colors.dart';
+import '../pages/homescreen_page.dart';
 import 'package:flutter/material.dart';
 import '../people_directory/people3.dart';
 import '../stream_directory/stream3.dart';
@@ -18,7 +18,7 @@ class ClassRoomPage3 extends StatefulWidget {
 class _ClassRoomPage3State extends State<ClassRoomPage3> {
   int pageIndex = 0;
   final pages = [
-     Stream3(),
+    Stream3(),
     const Classwork(),
     const People3(),
   ];
@@ -33,10 +33,9 @@ class _ClassRoomPage3State extends State<ClassRoomPage3> {
           elevation: 0.5,
           leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pop(MaterialPageRoute(builder:
-                  (BuildContext context) => HomeScreenPage(),
-              )
-              );
+              Navigator.of(context).pop(MaterialPageRoute(
+                builder: (BuildContext context) => HomeScreenPage(),
+              ));
             },
             icon: Icon(Icons.arrow_back),
             color: ColorPalette.accentBlack,
@@ -60,15 +59,15 @@ class _ClassRoomPage3State extends State<ClassRoomPage3> {
                 },
                 icon: pageIndex == 0
                     ? const Icon(
-                  Icons.stream,
-                  color: Colors.black,
-                  size: 35,
-                )
+                        Icons.stream,
+                        color: Colors.black,
+                        size: 35,
+                      )
                     : const Icon(
-                  Icons.stream_outlined,
-                  color: Colors.black,
-                  size: 35,
-                ),
+                        Icons.stream_outlined,
+                        color: Colors.black,
+                        size: 35,
+                      ),
               ),
               IconButton(
                 enableFeedback: false,
@@ -79,15 +78,15 @@ class _ClassRoomPage3State extends State<ClassRoomPage3> {
                 },
                 icon: pageIndex == 1
                     ? const Icon(
-                  Icons.article,
-                  color: Colors.black,
-                  size: 35,
-                )
+                        Icons.article,
+                        color: Colors.black,
+                        size: 35,
+                      )
                     : const Icon(
-                  Icons.article_outlined,
-                  color: Colors.black,
-                  size: 35,
-                ),
+                        Icons.article_outlined,
+                        color: Colors.black,
+                        size: 35,
+                      ),
               ),
               IconButton(
                 enableFeedback: false,
@@ -98,19 +97,18 @@ class _ClassRoomPage3State extends State<ClassRoomPage3> {
                 },
                 icon: pageIndex == 2
                     ? const Icon(
-                  Icons.people,
-                  color: Colors.black,
-                  size: 35,
-                )
+                        Icons.people,
+                        color: Colors.black,
+                        size: 35,
+                      )
                     : const Icon(
-                  Icons.people_outline,
-                  color: Colors.black,
-                  size: 35,
-                ),
+                        Icons.people_outline,
+                        color: Colors.black,
+                        size: 35,
+                      ),
               ),
             ],
           ),
         ));
   }
 }
-

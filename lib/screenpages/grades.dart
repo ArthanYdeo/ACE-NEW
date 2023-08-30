@@ -1,4 +1,4 @@
-import 'package:ace/constant/colors.dart';
+import 'package:ACE/constant/colors.dart';
 import 'package:flutter/material.dart';
 
 class Grades extends StatefulWidget {
@@ -30,7 +30,7 @@ class _GradesState extends State<Grades> {
       body: Center(
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child:  Container(
+          child: Container(
             alignment: Alignment.center,
             height: 410,
             width: 360,
@@ -48,23 +48,20 @@ class _GradesState extends State<Grades> {
                 ),
               ],
             ),
-
-
-
-
             child: DataTable(
-                border: TableBorder.all(
-                  color: Colors.grey,
-                  width: 1.0,
-                ),
+              border: TableBorder.all(
+                color: Colors.grey,
+                width: 1.0,
+              ),
 
               //dataRowHeight: 60.0, // set the height of the rows
               columns: [
                 DataColumn(
                   label: Text(
-                      'SUBJECT CODE',
-                    style: TextStyle(color: Colors.black,
-                    fontFamily: 'Lato',
+                    'SUBJECT CODE',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Lato',
                     ),
                   ),
                 ),
@@ -86,7 +83,7 @@ class _GradesState extends State<Grades> {
                 ),
               ],
               rows: _subjectList.map(
-                    (subject) {
+                (subject) {
                   return DataRow(cells: [
                     DataCell(Text(subject['code'])),
                     DataCell(
@@ -95,7 +92,6 @@ class _GradesState extends State<Grades> {
                           horizontal: 16.0,
                           vertical: 8.0,
                         ),
-
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: Colors.white,
@@ -103,10 +99,8 @@ class _GradesState extends State<Grades> {
                           ),
                           borderRadius: BorderRadius.circular(5.0),
                         ),
-                        child:
-                        Text(subject['grade']),
+                        child: Text(subject['grade']),
                       ),
-
                     ),
                   ]);
                 },
@@ -115,7 +109,6 @@ class _GradesState extends State<Grades> {
           ),
         ),
       ),
-
     );
   }
 }

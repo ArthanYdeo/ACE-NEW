@@ -1,7 +1,7 @@
-import 'package:ace/components/admin_button.dart';
-import 'package:ace/components/register_button.dart';
-import 'package:ace/components/selection_header.dart';
-import 'package:ace/components/student_button.dart';
+import 'package:ACE/components/admin_button.dart';
+import 'package:ACE/components/register_button.dart';
+import 'package:ACE/components/selection_header.dart';
+import 'package:ACE/components/student_button.dart';
 import 'package:flutter/material.dart';
 
 import '../constant/colors.dart';
@@ -22,13 +22,15 @@ class SelectionPage extends StatelessWidget {
               Text(
                 'Academia Classroom Explorer',
                 style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Lato',
-                  fontWeight: FontWeight.w900,
-                  fontSize: 25),
+                    color: Colors.white,
+                    fontFamily: 'Lato',
+                    fontWeight: FontWeight.w900,
+                    fontSize: 25),
               ),
               SizedBox(height: 50),
               StudentButton(onTap: null),
+              SizedBox(height: 10),
+              AdminButton(onTap: null),
               SizedBox(height: 10),
               RegisterButton(onTap: null),
             ],

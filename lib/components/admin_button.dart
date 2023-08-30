@@ -15,7 +15,7 @@ class AdminButton extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (BuildContext context) => const AdminLoginPage()));
+            builder: (BuildContext context) => AdminLoginPage()));
       },
       child: Container(
         padding: const EdgeInsets.all(15),
