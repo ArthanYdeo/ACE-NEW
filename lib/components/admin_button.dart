@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constant/colors.dart';
-import '../pages/adminlogin_page.dart';
+import 'package:ace/pages/adminlogin_page.dart';
 
 class AdminButton extends StatelessWidget {
   final Function()? onTap;
@@ -15,7 +15,7 @@ class AdminButton extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (BuildContext context) => const AdminLoginPage()));
+            builder: (BuildContext context) => AdminLoginPage()));
       },
       child: Container(
         padding: const EdgeInsets.all(15),
