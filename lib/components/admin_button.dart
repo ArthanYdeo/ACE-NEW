@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constant/colors.dart';
-import 'package:ace/pages/adminlogin_page.dart';
+import '../pages/adminlogin_page.dart';
 
 class AdminButton extends StatelessWidget {
   final Function()? onTap;

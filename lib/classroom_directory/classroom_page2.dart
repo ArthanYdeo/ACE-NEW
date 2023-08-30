@@ -1,7 +1,7 @@
-import 'package:ace/classroom_directory/classwork.dart';
-import 'package:ace/constant/colors.dart';
-import 'package:ace/pages/homescreen_page.dart';
-import 'package:ace/stream_directory/stream2.dart';
+import '../classroom_directory/classwork.dart';
+import '../constant/colors.dart';
+import '../pages/homescreen_page.dart';
+import '../stream_directory/stream2.dart';
 import 'package:flutter/material.dart';
 import '../people_directory/people2.dart';
 
@@ -19,7 +19,7 @@ class ClassRoomPage2 extends StatefulWidget {
 class _ClassRoomPage2State extends State<ClassRoomPage2> {
   int pageIndex = 0;
   final pages = [
-     Stream2(),
+    Stream2(),
     Classwork(),
     People2(),
   ];
@@ -34,10 +34,9 @@ class _ClassRoomPage2State extends State<ClassRoomPage2> {
           elevation: 0.5,
           leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pop(MaterialPageRoute(builder:
-                  (BuildContext context) => HomeScreenPage(),
-              )
-              );
+              Navigator.of(context).pop(MaterialPageRoute(
+                builder: (BuildContext context) => HomeScreenPage(),
+              ));
             },
             icon: Icon(Icons.arrow_back),
             color: ColorPalette.accentBlack,
@@ -61,15 +60,15 @@ class _ClassRoomPage2State extends State<ClassRoomPage2> {
                 },
                 icon: pageIndex == 0
                     ? const Icon(
-                  Icons.stream,
-                  color: Colors.black,
-                  size: 35,
-                )
+                        Icons.stream,
+                        color: Colors.black,
+                        size: 35,
+                      )
                     : const Icon(
-                  Icons.stream_outlined,
-                  color: Colors.black,
-                  size: 35,
-                ),
+                        Icons.stream_outlined,
+                        color: Colors.black,
+                        size: 35,
+                      ),
               ),
               IconButton(
                 enableFeedback: false,
@@ -80,15 +79,15 @@ class _ClassRoomPage2State extends State<ClassRoomPage2> {
                 },
                 icon: pageIndex == 1
                     ? const Icon(
-                  Icons.article,
-                  color: Colors.black,
-                  size: 35,
-                )
+                        Icons.article,
+                        color: Colors.black,
+                        size: 35,
+                      )
                     : const Icon(
-                  Icons.article_outlined,
-                  color: Colors.black,
-                  size: 35,
-                ),
+                        Icons.article_outlined,
+                        color: Colors.black,
+                        size: 35,
+                      ),
               ),
               IconButton(
                 enableFeedback: false,
@@ -99,19 +98,18 @@ class _ClassRoomPage2State extends State<ClassRoomPage2> {
                 },
                 icon: pageIndex == 2
                     ? const Icon(
-                  Icons.people,
-                  color: Colors.black,
-                  size: 35,
-                )
+                        Icons.people,
+                        color: Colors.black,
+                        size: 35,
+                      )
                     : const Icon(
-                  Icons.people_outline,
-                  color: Colors.black,
-                  size: 35,
-                ),
+                        Icons.people_outline,
+                        color: Colors.black,
+                        size: 35,
+                      ),
               ),
             ],
           ),
         ));
   }
 }
-

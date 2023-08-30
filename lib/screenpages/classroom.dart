@@ -1,8 +1,8 @@
-import 'package:ace/classroom_directory/classroom_page1.dart';
-import 'package:ace/classroom_directory/classroom_page2.dart';
-import 'package:ace/classroom_directory/classroom_page3.dart';
+import 'package:ACE/classroom_directory/classroom_page1.dart';
+import 'package:ACE/classroom_directory/classroom_page2.dart';
+import 'package:ACE/classroom_directory/classroom_page3.dart';
 import 'package:flutter/material.dart';
-import 'package:ace/models/classroom.dart';
+import 'package:ACE/models/classroom.dart';
 import '../constant/colors.dart';
 
 class Classroom extends StatefulWidget {
@@ -14,15 +14,15 @@ class _ClassroomState extends State<Classroom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPalette.accentBlack,
+        backgroundColor: ColorPalette.accentBlack,
         body: ListView.builder(
             itemCount: classRoomList.length,
             itemBuilder: (context, index) {
               return ListTile(
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(
                     builder: (_) => ClassRoomPage1(
-                      className: classRoomList[index].className,
-                    ))),
+                          className: classRoomList[index].className,
+                        ))),
                 title: Stack(
                   children: [
                     Container(
@@ -88,5 +88,3 @@ class _ClassroomState extends State<Classroom> {
             }));
   }
 }
-
-

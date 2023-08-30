@@ -1,5 +1,5 @@
-import 'package:ace/pages/homescreen_page.dart';
-import 'package:ace/pages/selection_page.dart';
+import 'package:ACE/pages/homescreen_page.dart';
+import 'package:ACE/pages/selection_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';

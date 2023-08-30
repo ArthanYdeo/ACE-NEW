@@ -1,4 +1,4 @@
-import 'package:ace/pages/homescreen_page.dart';
+import '../pages/homescreen_page.dart';
 import 'package:flutter/material.dart';
 
 class StudentLoginButton extends StatelessWidget {

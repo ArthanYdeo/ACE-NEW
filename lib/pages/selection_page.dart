@@ -1,7 +1,7 @@
-import 'package:ace/components/admin_button.dart';
-import 'package:ace/components/register_button.dart';
-import 'package:ace/components/selection_header.dart';
-import 'package:ace/components/student_button.dart';
+import 'package:ACE/components/admin_button.dart';
+import 'package:ACE/components/register_button.dart';
+import 'package:ACE/components/selection_header.dart';
+import 'package:ACE/components/student_button.dart';
 import 'package:flutter/material.dart';
 
 import '../constant/colors.dart';
